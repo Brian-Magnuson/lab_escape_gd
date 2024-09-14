@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsy4y3i3caelu"]
+[gd_scene load_steps=9 format=3 uid="uid://dsy4y3i3caelu"]
 
+[ext_resource type="Script" path="res://scenes/jelly.gd" id="1_gp17k"]
 [ext_resource type="Texture2D" uid="uid://d36sbmax15tjp" path="res://art/enemies/JellyIdle.png" id="1_ud5q6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kinvn"]
@@ -42,6 +43,7 @@ animations = [{
 size = Vector2(14, 21)
 
 [node name="Jelly" type="Area2D"]
+script = ExtResource("1_gp17k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -52,3 +54,5 @@ frame_progress = 0.859671
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_hvjpu")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

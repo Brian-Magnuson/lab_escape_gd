@@ -26,13 +26,24 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Input.is_action_pressed("attack"):
+		$AttackArea/CollisionShape2D.disabled = false
+	else:
+		$AttackArea/CollisionShape2D.disabled = true
+	
+	if direction < 0:
+		$AnimatedSprite2D.flip_h = true
+		$AttackArea.scale.x = -1
+	elif direction > 0:
+		$AnimatedSprite2D.flip_h = false
+		$AttackArea.scale.x = 1
+	
+	# Handle animations
+	if Input.is_action_pressed("attack"):
 		$AnimatedSprite2D.play("attack")
-		$AnimatedSprite2D.flip_h = direction < 0
 	elif Input.is_action_just_pressed("jump") and is_on_floor():
 		$AnimatedSprite2D.play("jump")
 	elif is_on_floor() and abs(direction) > 0:
 		$AnimatedSprite2D.play("walk")
-		$AnimatedSprite2D.flip_h = direction < 0
 	else:
 		$AnimatedSprite2D.play("idle")
 

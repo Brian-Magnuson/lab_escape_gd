@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://q1ded3kw1kq3"]
+[gd_scene load_steps=6 format=4 uid="uid://q1ded3kw1kq3"]
 
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://art/tiles/LabTileset.png" id="1_nlk7r"]
 [ext_resource type="PackedScene" uid="uid://bw1sjx2gp5mpl" path="res://scenes/player.tscn" id="2_11nw6"]
+[ext_resource type="PackedScene" uid="uid://dsy4y3i3caelu" path="res://scenes/jelly.tscn" id="3_w75ps"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iob1g"]
 resource_name = "lab_tiles"
@@ -149,3 +150,6 @@ zoom = Vector2(2.145, 2.145)
 
 [node name="Player" parent="." instance=ExtResource("2_11nw6")]
 position = Vector2(234, 491)
+
+[node name="Jelly" parent="." instance=ExtResource("3_w75ps")]
+position = Vector2(383, 467)

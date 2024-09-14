@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bw1sjx2gp5mpl"]
+[gd_scene load_steps=36 format=3 uid="uid://bw1sjx2gp5mpl"]
 
 [ext_resource type="Texture2D" uid="uid://cxc5r5dvu5wa5" path="res://art/player/PlayerDeath.png" id="1_4k1s7"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_7ka4d"]
@@ -220,6 +220,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4wqh"]
 size = Vector2(19, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1hxv"]
+size = Vector2(31, 19)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_7ka4d")
 metadata/_edit_group_ = true
@@ -228,9 +231,15 @@ metadata/_edit_group_ = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ssiv6")
 animation = &"attack"
-frame = 1
-frame_progress = 0.0181839
+frame_progress = 0.532749
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_d4wqh")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(27.5, 3.5)
+shape = SubResource("RectangleShape2D_e1hxv")
+disabled = true
