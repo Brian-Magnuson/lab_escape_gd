@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsy4y3i3caelu"]
+
+[ext_resource type="Texture2D" uid="uid://d36sbmax15tjp" path="res://art/enemies/JellyIdle.png" id="1_ud5q6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kinvn"]
+atlas = ExtResource("1_ud5q6")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekouc"]
+atlas = ExtResource("1_ud5q6")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xdc7"]
+atlas = ExtResource("1_ud5q6")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1aw4"]
+atlas = ExtResource("1_ud5q6")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_442gm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kinvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekouc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xdc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1aw4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvjpu"]
+size = Vector2(14, 21)
+
+[node name="Jelly" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_442gm")
+frame = 1
+frame_progress = 0.859671
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_hvjpu")
