@@ -47,6 +47,7 @@ size = Vector2(14, 21)
 
 [node name="Jelly" type="Node2D"]
 script = ExtResource("1_gp17k")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
