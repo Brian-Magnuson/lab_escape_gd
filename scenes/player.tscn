@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bw1sjx2gp5mpl"]
+[gd_scene load_steps=37 format=3 uid="uid://bw1sjx2gp5mpl"]
 
 [ext_resource type="Texture2D" uid="uid://cxc5r5dvu5wa5" path="res://art/player/PlayerDeath.png" id="1_4k1s7"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_7ka4d"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://be1g7bxp3c483" path="res://art/player/PlayerAttack.png" id="2_xca2o"]
 [ext_resource type="Texture2D" uid="uid://c1uwstx5hpyig" path="res://art/player/PlayerJump.png" id="3_r3lmb"]
 [ext_resource type="Texture2D" uid="uid://dohgiyqvmhnph" path="res://art/player/PlayerWalk.png" id="4_gik35"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4wqh"]
+size = Vector2(19, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7uj7"]
 atlas = ExtResource("2_xca2o")
@@ -217,15 +220,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4wqh"]
-size = Vector2(19, 24)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1hxv"]
 size = Vector2(31, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1j83g"]
+size = Vector2(19, 24)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_7ka4d")
 metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_d4wqh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -233,13 +240,23 @@ sprite_frames = SubResource("SpriteFrames_ssiv6")
 animation = &"attack"
 frame_progress = 0.532749
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1)
-shape = SubResource("RectangleShape2D_d4wqh")
+[node name="Hitbox" type="Area2D" parent="." groups=["player_hitbox"]]
+metadata/hit_damage = 100
 
-[node name="AttackArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(27.5, 3.5)
 shape = SubResource("RectangleShape2D_e1hxv")
 disabled = true
+debug_color = Color(0, 0.647636, 0.205455, 0.42)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_1j83g")
+debug_color = Color(1, 0.00518643, 0.0615661, 0.42)
+
+[node name="IFrameTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]

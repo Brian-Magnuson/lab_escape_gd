@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsy4y3i3caelu"]
+[gd_scene load_steps=10 format=3 uid="uid://dsy4y3i3caelu"]
 
 [ext_resource type="Script" path="res://scenes/jelly.gd" id="1_gp17k"]
 [ext_resource type="Texture2D" uid="uid://d36sbmax15tjp" path="res://art/enemies/JellyIdle.png" id="1_ud5q6"]
@@ -42,7 +42,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvjpu"]
 size = Vector2(14, 21)
 
-[node name="Jelly" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67gvd"]
+size = Vector2(14, 21)
+
+[node name="Jelly" type="Node2D"]
 script = ExtResource("1_gp17k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -51,8 +54,23 @@ sprite_frames = SubResource("SpriteFrames_442gm")
 frame = 1
 frame_progress = 0.859671
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy_hitbox"]]
+metadata/hit_damage = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_hvjpu")
+debug_color = Color(0, 0.647636, 0.205455, 0.42)
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_67gvd")
+debug_color = Color(1, 0.00518643, 0.0615661, 0.42)
+
+[node name="IFrameTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
