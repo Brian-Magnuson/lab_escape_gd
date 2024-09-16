@@ -241,7 +241,6 @@ animation = &"attack"
 frame_progress = 0.532749
 
 [node name="Hitbox" type="Area2D" parent="." groups=["player_hitbox"]]
-metadata/hit_damage = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(27.5, 3.5)

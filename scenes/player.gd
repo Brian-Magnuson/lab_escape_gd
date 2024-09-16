@@ -3,8 +3,11 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
+@export var health = 100
+@export var damage = 20
 
 func _ready() -> void:
+	$Hitbox.set_meta("hit_damage", damage)
 	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta: float) -> void:
@@ -49,17 +52,17 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-func hit() -> void:
+func hit(amount: int) -> void:
 	$IFrameTimer.start()
-	print("Player hurt!")
+	print("Player took ", amount, " damage!")
 	$Hurtbox/CollisionShape2D.disabled = true
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_hitbox"):
-		hit()
+		hit(area.get_meta("hit_damage") as int)
 
 func _on_i_frame_timer_timeout() -> void:
 	$Hurtbox/CollisionShape2D.disabled = false
 	for area in $Hurtbox.get_overlapping_areas():
 		if area.is_in_group("enemy_hitbox"):
-			hit()
+			hit(area.get_meta("hit_damage") as int)
