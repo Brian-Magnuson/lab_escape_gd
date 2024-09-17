@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsy4y3i3caelu"]
+[gd_scene load_steps=11 format=3 uid="uid://dsy4y3i3caelu"]
 
 [ext_resource type="Script" path="res://scenes/jelly.gd" id="1_gp17k"]
 [ext_resource type="Texture2D" uid="uid://d36sbmax15tjp" path="res://art/enemies/JellyIdle.png" id="1_ud5q6"]
@@ -45,6 +45,13 @@ size = Vector2(14, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67gvd"]
 size = Vector2(14, 21)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvcwv"]
+bg_color = Color(0.890589, 0.0620723, 0.0367066, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="Jelly" type="Node2D"]
 script = ExtResource("1_gp17k")
 metadata/_edit_group_ = true
@@ -71,6 +78,17 @@ debug_color = Color(1, 0.00518643, 0.0615661, 0.42)
 
 [node name="IFrameTimer" type="Timer" parent="."]
 wait_time = 0.25
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -9.0
+offset_top = -13.0
+offset_right = 111.0
+offset_bottom = -6.0
+scale = Vector2(0.15, 0.15)
+theme_override_styles/fill = SubResource("StyleBoxFlat_kvcwv")
+max_value = 1.0
+value = 0.5
+show_percentage = false
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
