@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://q1ded3kw1kq3"]
+[gd_scene load_steps=10 format=4 uid="uid://q1ded3kw1kq3"]
 
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://art/tiles/LabTileset.png" id="1_nlk7r"]
 [ext_resource type="PackedScene" uid="uid://bw1sjx2gp5mpl" path="res://scenes/player.tscn" id="2_11nw6"]
 [ext_resource type="PackedScene" uid="uid://dsy4y3i3caelu" path="res://scenes/jelly.tscn" id="3_w75ps"]
+[ext_resource type="Texture2D" uid="uid://w4yl13wfmkrv" path="res://art/ui/HealthBarFrame.png" id="4_avx8r"]
+[ext_resource type="Texture2D" uid="uid://cqdq0lrkmbfl4" path="res://art/ui/HealthBarFill.png" id="5_b6id5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iob1g"]
 resource_name = "lab_tiles"
@@ -137,6 +139,13 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_iob1g")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxdf2"]
+texture = ExtResource("4_avx8r")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ag0ox"]
+texture = ExtResource("5_b6id5")
+axis_stretch_horizontal = 1
+
 [node name="Level0" type="Node"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -153,3 +162,18 @@ position = Vector2(234, 491)
 
 [node name="Jelly" parent="." instance=ExtResource("3_w75ps")]
 position = Vector2(383, 467)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 84.0
+offset_bottom = 28.0
+scale = Vector2(4, 4)
+theme_override_styles/background = SubResource("StyleBoxTexture_gxdf2")
+theme_override_styles/fill = SubResource("StyleBoxTexture_ag0ox")
+max_value = 1.0
+value = 0.5
+show_percentage = false
