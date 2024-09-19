@@ -10,7 +10,6 @@ func _ready() -> void:
 	update_health_bar()
 
 func hit(amount: float) -> void:
-	print("Enemy took ", amount, " damage!")
 	health = clamp(health - amount, 0, max_health)
 	update_health_bar()
 	$IFrameTimer.start()

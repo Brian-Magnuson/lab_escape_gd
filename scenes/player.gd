@@ -1,14 +1,21 @@
 extends CharacterBody2D
 
+## Emitted when the player's health updates, allowing other nodes, such as a
+## health bar, to respond to the update.
+signal health_updated(health: float, max_health: float)
+
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
 @export var health = 100.0
+@export var max_health = 100.0
 @export var damage = 10.0
 
 func _ready() -> void:
 	$Hitbox.set_meta("hit_damage", damage)
 	$AnimatedSprite2D.play("idle")
+	health = max_health
+	health_updated.emit(health, max_health)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -53,8 +60,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func hit(amount: float) -> void:
+	health = clamp(health - amount, 0, max_health)
+	health_updated.emit(health, max_health)
 	$IFrameTimer.start()
-	print("Player took ", amount, " damage!")
 	$Hurtbox/CollisionShape2D.disabled = true
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:

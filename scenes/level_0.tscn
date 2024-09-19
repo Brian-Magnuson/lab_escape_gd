@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://q1ded3kw1kq3"]
+[gd_scene load_steps=11 format=4 uid="uid://q1ded3kw1kq3"]
 
+[ext_resource type="Script" path="res://scenes/level_0.gd" id="1_bqruw"]
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://art/tiles/LabTileset.png" id="1_nlk7r"]
 [ext_resource type="PackedScene" uid="uid://bw1sjx2gp5mpl" path="res://scenes/player.tscn" id="2_11nw6"]
 [ext_resource type="PackedScene" uid="uid://dsy4y3i3caelu" path="res://scenes/jelly.tscn" id="3_w75ps"]
@@ -147,6 +148,7 @@ texture = ExtResource("5_b6id5")
 axis_stretch_horizontal = 1
 
 [node name="Level0" type="Node"]
+script = ExtResource("1_bqruw")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -165,7 +167,7 @@ position = Vector2(383, 467)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
 texture_filter = 1
 offset_left = 20.0
 offset_top = 20.0
@@ -177,3 +179,5 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_ag0ox")
 max_value = 1.0
 value = 0.5
 show_percentage = false
+
+[connection signal="health_updated" from="Player" to="." method="_on_player_health_updated"]
