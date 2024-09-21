@@ -3,7 +3,6 @@ extends Node2D
 @export var health = 30.0
 @export var max_health = 30.0
 @export var damage = 10.0
-@export var flip_h_on_start = false
 
 func _ready() -> void:
 	$Hitbox.set_meta("hit_damage", damage)
