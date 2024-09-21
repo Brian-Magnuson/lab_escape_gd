@@ -22,11 +22,11 @@ func hit(amount: float) -> void:
 		queue_free()
 	
 func update_health_bar() -> void:
-	$HealthBar.value = health / max_health
+	$HealthBarAnchor/HealthBar.value = health / max_health
 	if health < max_health:
-		$HealthBar.visible = true
+		$HealthBarAnchor/HealthBar.visible = true
 	else:
-		$HealthBar.visible = false
+		$HealthBarAnchor/HealthBar.visible = false
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_hitbox"):

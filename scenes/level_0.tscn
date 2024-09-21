@@ -164,6 +164,7 @@ position = Vector2(234, 491)
 
 [node name="Jelly" parent="." instance=ExtResource("3_w75ps")]
 position = Vector2(383, 467)
+scale = Vector2(-1, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

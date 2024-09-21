@@ -79,7 +79,10 @@ debug_color = Color(1, 0.00518643, 0.0615661, 0.42)
 [node name="IFrameTimer" type="Timer" parent="."]
 wait_time = 0.25
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="HealthBarAnchor" type="Node2D" parent="."]
+top_level = true
+
+[node name="HealthBar" type="ProgressBar" parent="HealthBarAnchor"]
 offset_left = -9.0
 offset_top = -13.0
 offset_right = 111.0
@@ -89,6 +92,11 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_kvcwv")
 max_value = 1.0
 value = 0.5
 show_percentage = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../HealthBarAnchor")
+update_rotation = false
+update_scale = false
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
