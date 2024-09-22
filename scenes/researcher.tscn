@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://b4uvhje4ecrus"]
+
+[ext_resource type="Script" path="res://scenes/researcher.gd" id="1_sil8i"]
+[ext_resource type="Texture2D" uid="uid://bhkddb0pokwvs" path="res://art/enemies/ResearcherRunning.png" id="2_nv7ao"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rlyy"]
+atlas = ExtResource("2_nv7ao")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c53j"]
+atlas = ExtResource("2_nv7ao")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwmag"]
+atlas = ExtResource("2_nv7ao")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7x7g"]
+atlas = ExtResource("2_nv7ao")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_442gm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rlyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c53j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwmag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7x7g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvjpu"]
+size = Vector2(14, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67gvd"]
+size = Vector2(14, 21)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvcwv"]
+bg_color = Color(0.890589, 0.0620723, 0.0367066, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Researcher" type="Node2D"]
+script = ExtResource("1_sil8i")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_442gm")
+frame = 2
+frame_progress = 0.918494
+
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy_hitbox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_hvjpu")
+debug_color = Color(0, 0.647636, 0.205455, 0.42)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_67gvd")
+debug_color = Color(1, 0.00518643, 0.0615661, 0.42)
+
+[node name="IFrameTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="HealthBarAnchor" type="Node2D" parent="."]
+top_level = true
+
+[node name="HealthBar" type="ProgressBar" parent="HealthBarAnchor"]
+offset_left = -9.0
+offset_top = -18.0
+offset_right = 111.0
+offset_bottom = -11.0
+scale = Vector2(0.15, 0.15)
+theme_override_styles/fill = SubResource("StyleBoxFlat_kvcwv")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../HealthBarAnchor")
+update_rotation = false
+update_scale = false
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
