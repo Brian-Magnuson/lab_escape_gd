@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=4 uid="uid://q1ded3kw1kq3"]
 
-[ext_resource type="Script" path="res://scenes/level_0.gd" id="1_bqruw"]
-[ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://art/tiles/LabTileset.png" id="1_nlk7r"]
+[ext_resource type="Script" path="res://scripts/level_0.gd" id="1_bqruw"]
+[ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://assets/tiles/LabTileset.png" id="1_nlk7r"]
 [ext_resource type="PackedScene" uid="uid://bw1sjx2gp5mpl" path="res://scenes/player.tscn" id="2_11nw6"]
 [ext_resource type="PackedScene" uid="uid://dsy4y3i3caelu" path="res://scenes/jelly.tscn" id="3_w75ps"]
-[ext_resource type="Texture2D" uid="uid://w4yl13wfmkrv" path="res://art/ui/HealthBarFrame.png" id="4_avx8r"]
-[ext_resource type="Texture2D" uid="uid://cqdq0lrkmbfl4" path="res://art/ui/HealthBarFill.png" id="5_b6id5"]
+[ext_resource type="Texture2D" uid="uid://w4yl13wfmkrv" path="res://assets/ui/HealthBarFrame.png" id="4_avx8r"]
+[ext_resource type="Texture2D" uid="uid://cqdq0lrkmbfl4" path="res://assets/ui/HealthBarFill.png" id="5_b6id5"]
 [ext_resource type="PackedScene" uid="uid://b4uvhje4ecrus" path="res://scenes/researcher.tscn" id="7_1rgqp"]
 [ext_resource type="PackedScene" uid="uid://cp0v4yyjy8bju" path="res://scenes/platform.tscn" id="8_rmqgc"]
 
@@ -167,6 +167,12 @@ zoom = Vector2(2.145, 2.145)
 position = Vector2(496, 499)
 scale = Vector2(-1, 1)
 
+[node name="Researcher" parent="." instance=ExtResource("7_1rgqp")]
+position = Vector2(302, 467)
+
+[node name="Platform" parent="." instance=ExtResource("8_rmqgc")]
+position = Vector2(76, 495)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
@@ -181,11 +187,5 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_ag0ox")
 max_value = 1.0
 value = 0.5
 show_percentage = false
-
-[node name="Researcher" parent="." instance=ExtResource("7_1rgqp")]
-position = Vector2(302, 467)
-
-[node name="Platform" parent="." instance=ExtResource("8_rmqgc")]
-position = Vector2(76, 495)
 
 [connection signal="health_updated" from="Player" to="." method="_on_player_health_updated"]

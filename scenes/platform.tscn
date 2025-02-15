@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp0v4yyjy8bju"]
 
-[ext_resource type="Texture2D" uid="uid://c0atwmqak8nbr" path="res://art/environment/Lift.png" id="1_46lt3"]
-[ext_resource type="Script" path="res://scenes/platform.gd" id="1_a18fk"]
+[ext_resource type="Texture2D" uid="uid://c0atwmqak8nbr" path="res://assets/environment/Lift.png" id="1_46lt3"]
+[ext_resource type="Script" path="res://scripts/platform.gd" id="1_a18fk"]
 
 [sub_resource type="Curve2D" id="Curve2D_ekrub"]
 _data = {
