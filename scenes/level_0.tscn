@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://q1ded3kw1kq3"]
+[gd_scene load_steps=11 format=4 uid="uid://q1ded3kw1kq3"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_bqruw"]
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://assets/tiles/LabTileset.png" id="1_nlk7r"]
@@ -142,18 +142,6 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_iob1g")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxdf2"]
-texture = ExtResource("4_avx8r")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ag0ox"]
-texture = ExtResource("5_b6id5")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-axis_stretch_horizontal = 1
-region_rect = Rect2(0, 0, 64, 8)
-
 [node name="Level0" type="Node"]
 script = ExtResource("1_bqruw")
 
@@ -180,17 +168,18 @@ position = Vector2(76, 495)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
 texture_filter = 1
+custom_minimum_size = Vector2(256, 32)
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 84.0
-offset_bottom = 28.0
-scale = Vector2(4, 4)
-theme_override_styles/background = SubResource("StyleBoxTexture_gxdf2")
-theme_override_styles/fill = SubResource("StyleBoxTexture_ag0ox")
+offset_right = 276.0
+offset_bottom = 52.0
 max_value = 1.0
+step = 0.01
 value = 0.5
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("4_avx8r")
+texture_progress = ExtResource("5_b6id5")
 
 [connection signal="health_updated" from="Player" to="." method="_on_player_health_updated"]
