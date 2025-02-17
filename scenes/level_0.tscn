@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://q1ded3kw1kq3"]
+[gd_scene load_steps=14 format=4 uid="uid://q1ded3kw1kq3"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_bqruw"]
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://assets/tiles/LabTileset.png" id="1_nlk7r"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b4uvhje4ecrus" path="res://scenes/researcher.tscn" id="7_1rgqp"]
 [ext_resource type="PackedScene" uid="uid://cp0v4yyjy8bju" path="res://scenes/platform.tscn" id="8_rmqgc"]
 [ext_resource type="FontFile" uid="uid://ovusp05cp1yp" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="9_o7mpk"]
+[ext_resource type="PackedScene" uid="uid://dqfacodlaacf3" path="res://scenes/green_gem.tscn" id="10_sgai5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iob1g"]
 resource_name = "lab_tiles"
@@ -201,5 +202,8 @@ grow_vertical = 2
 text = "50/100"
 label_settings = SubResource("LabelSettings_7ttmn")
 vertical_alignment = 1
+
+[node name="GreenGem" parent="." instance=ExtResource("10_sgai5")]
+position = Vector2(21, 495)
 
 [connection signal="health_updated" from="Player" to="." method="_on_player_health_updated"]

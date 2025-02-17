@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqfacodlaacf3"]
+
+[ext_resource type="Texture2D" uid="uid://bie14qyn2h81f" path="res://assets/items/GreenGem.png" id="1_c8cmd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24kir"]
+size = Vector2(16, 16)
+
+[node name="GreenGem" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_c8cmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_24kir")
