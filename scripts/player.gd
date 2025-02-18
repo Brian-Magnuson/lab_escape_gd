@@ -68,6 +68,8 @@ func hit(amount: float) -> void:
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_hitbox"):
 		hit(area.get_meta("hit_damage") as float)
+	if area.is_in_group("item_box"):
+		area.queue_free()
 
 func _on_i_frame_timer_timeout() -> void:
 	$Hurtbox/CollisionShape2D.disabled = false

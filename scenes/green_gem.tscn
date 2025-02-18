@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24kir"]
 size = Vector2(16, 16)
 
-[node name="GreenGem" type="Area2D"]
+[node name="GreenGem" type="Area2D" groups=["item_box"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -13,3 +13,4 @@ texture = ExtResource("1_c8cmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_24kir")
+debug_color = Color(0, 0.647636, 0.205455, 0.42)
