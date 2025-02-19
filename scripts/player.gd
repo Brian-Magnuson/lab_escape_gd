@@ -4,6 +4,9 @@ extends CharacterBody2D
 ## health bar, to respond to the update.
 signal health_updated(health: float, max_health: float)
 
+## Emitted when the player needs to update the score by a certain amount.
+signal score_updated(amount: float)
+
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
@@ -70,6 +73,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		hit(area.get_meta("hit_damage") as float)
 	if area.is_in_group("item_box"):
 		area.queue_free()
+		score_updated.emit(100)
 
 func _on_i_frame_timer_timeout() -> void:
 	$Hurtbox/CollisionShape2D.disabled = false

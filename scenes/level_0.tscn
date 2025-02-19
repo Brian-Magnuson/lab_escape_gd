@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://q1ded3kw1kq3"]
+[gd_scene load_steps=13 format=4 uid="uid://q1ded3kw1kq3"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_bqruw"]
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://assets/tiles/LabTileset.png" id="1_nlk7r"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cqdq0lrkmbfl4" path="res://assets/ui/HealthBarFill.png" id="5_b6id5"]
 [ext_resource type="PackedScene" uid="uid://b4uvhje4ecrus" path="res://scenes/researcher.tscn" id="7_1rgqp"]
 [ext_resource type="PackedScene" uid="uid://cp0v4yyjy8bju" path="res://scenes/platform.tscn" id="8_rmqgc"]
-[ext_resource type="FontFile" uid="uid://ovusp05cp1yp" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="9_o7mpk"]
+[ext_resource type="LabelSettings" uid="uid://c5bu3f0xusone" path="res://styles/labels.tres" id="9_68k0l"]
 [ext_resource type="PackedScene" uid="uid://dqfacodlaacf3" path="res://scenes/green_gem.tscn" id="10_sgai5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iob1g"]
@@ -144,12 +144,6 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_iob1g")
 
-[sub_resource type="LabelSettings" id="LabelSettings_7ttmn"]
-font = ExtResource("9_o7mpk")
-font_size = 36
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
-
 [node name="Level0" type="Node"]
 script = ExtResource("1_bqruw")
 
@@ -200,10 +194,23 @@ anchor_bottom = 0.5
 offset_left = 10.0
 grow_vertical = 2
 text = "50/100"
-label_settings = SubResource("LabelSettings_7ttmn")
+label_settings = ExtResource("9_68k0l")
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_top = 15.0
+offset_right = -20.0
+grow_horizontal = 0
+text = "0
+"
+label_settings = ExtResource("9_68k0l")
 vertical_alignment = 1
 
 [node name="GreenGem" parent="." instance=ExtResource("10_sgai5")]
 position = Vector2(21, 495)
 
 [connection signal="health_updated" from="Player" to="." method="_on_player_health_updated"]
+[connection signal="score_updated" from="Player" to="." method="_on_player_score_updated"]
