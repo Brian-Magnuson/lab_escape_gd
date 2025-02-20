@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://q1ded3kw1kq3"]
+[gd_scene load_steps=14 format=4 uid="uid://q1ded3kw1kq3"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_bqruw"]
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://assets/tiles/LabTileset.png" id="1_nlk7r"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cp0v4yyjy8bju" path="res://scenes/platform.tscn" id="8_rmqgc"]
 [ext_resource type="LabelSettings" uid="uid://c5bu3f0xusone" path="res://styles/labels.tres" id="9_68k0l"]
 [ext_resource type="PackedScene" uid="uid://dqfacodlaacf3" path="res://scenes/green_gem.tscn" id="10_sgai5"]
+[ext_resource type="PackedScene" uid="uid://dmgwvvfkniaqj" path="res://scenes/health_kit.tscn" id="11_2ko7y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iob1g"]
 resource_name = "lab_tiles"
@@ -211,6 +212,12 @@ vertical_alignment = 1
 
 [node name="GreenGem" parent="." instance=ExtResource("10_sgai5")]
 position = Vector2(21, 495)
+
+[node name="GreenGem2" parent="." instance=ExtResource("10_sgai5")]
+position = Vector2(-5, 495)
+
+[node name="HealthKit" parent="." instance=ExtResource("11_2ko7y")]
+position = Vector2(-38, 495)
 
 [connection signal="health_updated" from="Player" to="." method="_on_player_health_updated"]
 [connection signal="score_updated" from="Player" to="." method="_on_player_score_updated"]

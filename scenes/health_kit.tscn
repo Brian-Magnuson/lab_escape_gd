@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmgwvvfkniaqj"]
+
+[ext_resource type="Texture2D" uid="uid://d05xe0r5ce1no" path="res://assets/items/HealthKit.png" id="1_5mirw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msrgl"]
+size = Vector2(24, 24)
+
+[node name="HealthKit" type="Area2D" groups=["item_heal"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_msrgl")
+debug_color = Color(0, 0.647636, 0.205455, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -1)
+texture = ExtResource("1_5mirw")

@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24kir"]
 size = Vector2(16, 16)
 
-[node name="GreenGem" type="Area2D" groups=["item_box"]]
+[node name="GreenGem" type="Area2D" groups=["item_score"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
