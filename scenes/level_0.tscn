@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://q1ded3kw1kq3"]
+[gd_scene load_steps=15 format=4 uid="uid://q1ded3kw1kq3"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_bqruw"]
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://assets/tiles/LabTileset.png" id="1_nlk7r"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dsy4y3i3caelu" path="res://scenes/jelly.tscn" id="3_w75ps"]
 [ext_resource type="Texture2D" uid="uid://w4yl13wfmkrv" path="res://assets/ui/HealthBarFrame.png" id="4_avx8r"]
 [ext_resource type="Texture2D" uid="uid://cqdq0lrkmbfl4" path="res://assets/ui/HealthBarFill.png" id="5_b6id5"]
-[ext_resource type="PackedScene" uid="uid://b4uvhje4ecrus" path="res://scenes/researcher.tscn" id="7_1rgqp"]
-[ext_resource type="PackedScene" uid="uid://cp0v4yyjy8bju" path="res://scenes/platform.tscn" id="8_rmqgc"]
+[ext_resource type="PackedScene" path="res://scenes/researcher.tscn" id="7_1rgqp"]
+[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="8_rmqgc"]
 [ext_resource type="LabelSettings" uid="uid://c5bu3f0xusone" path="res://styles/labels.tres" id="9_68k0l"]
-[ext_resource type="PackedScene" uid="uid://dqfacodlaacf3" path="res://scenes/green_gem.tscn" id="10_sgai5"]
-[ext_resource type="PackedScene" uid="uid://dmgwvvfkniaqj" path="res://scenes/health_kit.tscn" id="11_2ko7y"]
+[ext_resource type="PackedScene" path="res://scenes/green_gem.tscn" id="10_sgai5"]
+[ext_resource type="PackedScene" path="res://scenes/health_kit.tscn" id="11_2ko7y"]
+[ext_resource type="PackedScene" uid="uid://dfw8bn381rsyv" path="res://scenes/blue_potion.tscn" id="12_0kblh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iob1g"]
 resource_name = "lab_tiles"
@@ -218,6 +219,9 @@ position = Vector2(-5, 495)
 
 [node name="HealthKit" parent="." instance=ExtResource("11_2ko7y")]
 position = Vector2(-38, 495)
+
+[node name="BluePotion" parent="." instance=ExtResource("12_0kblh")]
+position = Vector2(-71, 495)
 
 [connection signal="health_updated" from="Player" to="." method="_on_player_health_updated"]
 [connection signal="score_updated" from="Player" to="." method="_on_player_score_updated"]
