@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp0v4yyjy8bju"]
 
 [ext_resource type="Texture2D" uid="uid://c0atwmqak8nbr" path="res://assets/environment/Lift.png" id="1_46lt3"]
-[ext_resource type="Script" path="res://scripts/platform.gd" id="1_a18fk"]
+[ext_resource type="Script" path="res://scripts/lift.gd" id="1_a18fk"]
 
 [sub_resource type="Curve2D" id="Curve2D_ekrub"]
 _data = {
@@ -12,7 +12,7 @@ point_count = 3
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvqa8"]
 size = Vector2(64, 8)
 
-[node name="Platform" type="Path2D"]
+[node name="Lift" type="Path2D"]
 curve = SubResource("Curve2D_ekrub")
 script = ExtResource("1_a18fk")
 
