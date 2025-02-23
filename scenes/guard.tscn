@@ -1,0 +1,133 @@
+[gd_scene load_steps=15 format=3 uid="uid://b82vu7iyk8vtu"]
+
+[ext_resource type="Script" path="res://scripts/guard.gd" id="1_kdh50"]
+[ext_resource type="Texture2D" uid="uid://bxdeaxd22ro4l" path="res://assets/enemies/GuardShooting.png" id="2_nvsyl"]
+[ext_resource type="Texture2D" uid="uid://c3d2hoibibh1p" path="res://assets/enemies/GuardWalking.png" id="3_qeca4"]
+
+[sub_resource type="Curve2D" id="Curve2D_tjcxo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 111, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n06o4"]
+atlas = ExtResource("2_nvsyl")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwje1"]
+atlas = ExtResource("2_nvsyl")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avy0w"]
+atlas = ExtResource("3_qeca4")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n3yw"]
+atlas = ExtResource("3_qeca4")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hghj"]
+atlas = ExtResource("3_qeca4")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xdah"]
+atlas = ExtResource("3_qeca4")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_442gm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n06o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwje1")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avy0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n3yw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hghj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xdah")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvjpu"]
+size = Vector2(14, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67gvd"]
+size = Vector2(14, 21)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvcwv"]
+bg_color = Color(0.890589, 0.0620723, 0.0367066, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Guard" type="Path2D"]
+curve = SubResource("Curve2D_tjcxo")
+script = ExtResource("1_kdh50")
+metadata/_edit_group_ = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_442gm")
+animation = &"shooting"
+frame_progress = 0.509832
+
+[node name="Hitbox" type="Area2D" parent="PathFollow2D" groups=["enemy_hitbox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Hitbox"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_hvjpu")
+debug_color = Color(0, 0.647636, 0.205455, 0.42)
+
+[node name="Hurtbox" type="Area2D" parent="PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Hurtbox"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_67gvd")
+debug_color = Color(1, 0.00518643, 0.0615661, 0.42)
+
+[node name="IFrameTimer" type="Timer" parent="PathFollow2D"]
+wait_time = 0.25
+
+[node name="HealthBarAnchor" type="Node2D" parent="PathFollow2D"]
+top_level = true
+
+[node name="HealthBar" type="ProgressBar" parent="PathFollow2D/HealthBarAnchor"]
+offset_left = -9.0
+offset_top = -18.0
+offset_right = 111.0
+offset_bottom = -11.0
+scale = Vector2(0.15, 0.15)
+theme_override_styles/fill = SubResource("StyleBoxFlat_kvcwv")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../HealthBarAnchor")
+update_rotation = false
+update_scale = false
+
+[connection signal="area_entered" from="PathFollow2D/Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="PathFollow2D/IFrameTimer" to="." method="_on_i_frame_timer_timeout"]

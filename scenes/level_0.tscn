@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://q1ded3kw1kq3"]
+[gd_scene load_steps=18 format=4 uid="uid://q1ded3kw1kq3"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_bqruw"]
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://assets/tiles/LabTileset.png" id="1_nlk7r"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dqfacodlaacf3" path="res://scenes/green_gem.tscn" id="10_sgai5"]
 [ext_resource type="PackedScene" uid="uid://dmgwvvfkniaqj" path="res://scenes/health_kit.tscn" id="11_2ko7y"]
 [ext_resource type="PackedScene" uid="uid://dfw8bn381rsyv" path="res://scenes/blue_potion.tscn" id="12_0kblh"]
+[ext_resource type="PackedScene" uid="uid://b82vu7iyk8vtu" path="res://scenes/guard.tscn" id="14_g4v4n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iob1g"]
 resource_name = "lab_tiles"
@@ -232,6 +233,9 @@ position = Vector2(-38, 495)
 
 [node name="BluePotion" parent="." instance=ExtResource("12_0kblh")]
 position = Vector2(-71, 495)
+
+[node name="Guard" parent="." instance=ExtResource("14_g4v4n")]
+position = Vector2(728, 435)
 
 [connection signal="health_updated" from="Player" to="." method="_on_player_health_updated"]
 [connection signal="score_updated" from="Player" to="." method="_on_player_score_updated"]
