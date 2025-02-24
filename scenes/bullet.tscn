@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://c20mq3kn18dwh"]
+
+[ext_resource type="Texture2D" uid="uid://5liraqgvwvo8" path="res://assets/enemies/EnemyBullet.png" id="1_lgd27"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eehtt"]
+atlas = ExtResource("1_lgd27")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xc10"]
+atlas = ExtResource("1_lgd27")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yow7u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eehtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xc10")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hc1tq"]
+size = Vector2(6, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjudm"]
+size = Vector2(6, 6)
+
+[node name="Bullet" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_yow7u")
+frame_progress = 0.0148883
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hc1tq")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy_hitbox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_vjudm")
+debug_color = Color(0, 0.647059, 0.203922, 0.419608)
