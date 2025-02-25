@@ -21,6 +21,14 @@ window/size/viewport_width=1200
 window/size/viewport_height=675
 window/size/resizable=false
 
+[global_group]
+
+player_hitbox=""
+enemy_hitbox=""
+item_upgrade=""
+item_heal=""
+item_score=""
+
 [input]
 
 move_up={
