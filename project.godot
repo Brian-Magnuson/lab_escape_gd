@@ -28,6 +28,7 @@ enemy_hitbox=""
 item_upgrade=""
 item_heal=""
 item_score=""
+player=""
 
 [input]
 

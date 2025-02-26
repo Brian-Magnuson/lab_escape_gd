@@ -226,7 +226,7 @@ size = Vector2(31, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1j83g"]
 size = Vector2(19, 24)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_7ka4d")
 metadata/_edit_group_ = true
 

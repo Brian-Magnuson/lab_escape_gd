@@ -45,3 +45,14 @@ func _on_i_frame_timer_timeout() -> void:
 	for area in $PathFollow2D/Hurtbox.get_overlapping_areas():
 		if area.is_in_group("player_hitbox"):
 			hit(area.get_meta("hit_damage") as float)
+
+
+func _on_detection_zone_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		speed = 0
+		$PathFollow2D/AnimatedSprite2D.play("shooting")
+		
+func _on_detection_zone_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		speed = 40.0
+		$PathFollow2D/AnimatedSprite2D.play("walking")

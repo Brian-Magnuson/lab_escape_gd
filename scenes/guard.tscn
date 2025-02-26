@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b82vu7iyk8vtu"]
+[gd_scene load_steps=16 format=3 uid="uid://b82vu7iyk8vtu"]
 
 [ext_resource type="Script" path="res://scripts/guard.gd" id="1_kdh50"]
 [ext_resource type="Texture2D" uid="uid://bxdeaxd22ro4l" path="res://assets/enemies/GuardShooting.png" id="2_nvsyl"]
@@ -71,6 +71,9 @@ size = Vector2(14, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67gvd"]
 size = Vector2(14, 21)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l1da8"]
+radius = 80.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvcwv"]
 bg_color = Color(0.890589, 0.0620723, 0.0367066, 1)
 corner_radius_top_left = 5
@@ -106,6 +109,12 @@ position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_67gvd")
 debug_color = Color(1, 0.00518643, 0.0615661, 0.42)
 
+[node name="DetectionZone" type="Area2D" parent="PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/DetectionZone"]
+shape = SubResource("CircleShape2D_l1da8")
+debug_color = Color(0.619976, 0.35426, 1, 0.42)
+
 [node name="IFrameTimer" type="Timer" parent="PathFollow2D"]
 wait_time = 0.25
 
@@ -130,4 +139,6 @@ update_rotation = false
 update_scale = false
 
 [connection signal="area_entered" from="PathFollow2D/Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="PathFollow2D/DetectionZone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="body_exited" from="PathFollow2D/DetectionZone" to="." method="_on_detection_zone_body_exited"]
 [connection signal="timeout" from="PathFollow2D/IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
