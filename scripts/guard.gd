@@ -54,7 +54,9 @@ func _on_detection_zone_body_entered(body: Node2D) -> void:
 		speed = 0
 		$PathFollow2D/AnimatedSprite2D.play("shooting")
 		var bullet_inst = bullet.instantiate() as Node2D
-		bullet_inst.position = $PathFollow2D.global_position
+		var v1 = $PathFollow2D.global_position
+		var v2 = player.global_position
+		bullet_inst.position = v1 - 30 * (v1 - v2).normalized()
 		get_tree().root.add_child(bullet_inst)
 		
 func _on_detection_zone_body_exited(body: Node2D) -> void:
