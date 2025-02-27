@@ -6,10 +6,12 @@ extends Path2D
 
 @export var speed = 40.0
 
+@export var player: Node2D
+@export var bullet: PackedScene
+
 func _ready() -> void:
 	$PathFollow2D/Hitbox.set_meta("hit_damage", damage)
 	$PathFollow2D/AnimatedSprite2D.play("walking")
-		
 	health = max_health
 	update_health_bar()
 
@@ -51,6 +53,9 @@ func _on_detection_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		speed = 0
 		$PathFollow2D/AnimatedSprite2D.play("shooting")
+		var bullet_inst = bullet.instantiate() as Node2D
+		bullet_inst.position = $PathFollow2D.global_position
+		get_tree().root.add_child(bullet_inst)
 		
 func _on_detection_zone_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
