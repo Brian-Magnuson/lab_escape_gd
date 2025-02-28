@@ -56,7 +56,7 @@ func _on_detection_zone_body_entered(body: Node2D) -> void:
 		var bullet_inst = bullet.instantiate() as Node2D
 		var v1 = $PathFollow2D.global_position
 		var v2 = player.global_position
-		bullet_inst.position = v1 - 30 * (v1 - v2).normalized()
+		bullet_inst.position = v1 - 20 * (v1 - v2).normalized()
 		get_tree().root.add_child(bullet_inst)
 		
 func _on_detection_zone_body_exited(body: Node2D) -> void:
