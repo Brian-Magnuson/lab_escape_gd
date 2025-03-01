@@ -28,7 +28,7 @@ func hit(amount: float) -> void:
 	health = clamp(health - amount, 0, max_health)
 	update_health_bar()
 	$PathFollow2D/IFrameTimer.start()
-	$PathFollow2D/Hurtbox/CollisionShape2D.disabled = true
+	$PathFollow2D/Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 	
 	if health == 0.0:
 		queue_free()
@@ -62,6 +62,7 @@ func _on_detection_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		speed = 0
 		$PathFollow2D/AnimatedSprite2D.play("shooting")
+		shoot_bullet()
 		$PathFollow2D/ShootTimer.start()
 		
 func _on_detection_zone_body_exited(body: Node2D) -> void:

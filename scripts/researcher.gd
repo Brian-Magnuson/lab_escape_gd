@@ -24,7 +24,7 @@ func hit(amount: float) -> void:
 	health = clamp(health - amount, 0, max_health)
 	update_health_bar()
 	$PathFollow2D/IFrameTimer.start()
-	$PathFollow2D/Hurtbox/CollisionShape2D.disabled = true
+	$PathFollow2D/Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 	
 	if health == 0.0:
 		queue_free()

@@ -66,7 +66,7 @@ func hit(amount: float) -> void:
 	health = clamp(health - amount, 0, max_health)
 	health_updated.emit(health, max_health)
 	$IFrameTimer.start()
-	$Hurtbox/CollisionShape2D.disabled = true
+	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_hitbox"):
