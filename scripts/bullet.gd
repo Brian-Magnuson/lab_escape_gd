@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends RigidBody2D
 
 @export var damage = 10.0
 

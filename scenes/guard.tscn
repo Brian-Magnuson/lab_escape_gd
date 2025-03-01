@@ -118,6 +118,8 @@ debug_color = Color(0.619976, 0.35426, 1, 0.42)
 [node name="IFrameTimer" type="Timer" parent="PathFollow2D"]
 wait_time = 0.25
 
+[node name="ShootTimer" type="Timer" parent="PathFollow2D"]
+
 [node name="HealthBarAnchor" type="Node2D" parent="PathFollow2D"]
 top_level = true
 
@@ -142,3 +144,4 @@ update_scale = false
 [connection signal="body_entered" from="PathFollow2D/DetectionZone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="PathFollow2D/DetectionZone" to="." method="_on_detection_zone_body_exited"]
 [connection signal="timeout" from="PathFollow2D/IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
+[connection signal="timeout" from="PathFollow2D/ShootTimer" to="." method="_on_shoot_timer_timeout"]
