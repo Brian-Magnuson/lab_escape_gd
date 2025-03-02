@@ -57,7 +57,8 @@ func shoot_bullet() -> void:
 	var v2 = player.global_position
 	bullet_inst.position = v1 - 20 * (v1 - v2).normalized()
 	bullet_inst.linear_velocity = bullet_speed * (v2 - v1).normalized()
-	get_tree().root.add_child(bullet_inst)
+	# Add the bullet to the scene.
+	get_parent().call_deferred("add_child", bullet_inst)
 
 ## Updates the guard's health bar.
 func update_health_bar() -> void:
