@@ -1,9 +1,12 @@
 extends Node2D
 
-@export var health = 40.0
-@export var max_health = 40.0
+## The enemy's current health.
+@export var health = 30.0
+## The enemy's max health.
+@export var max_health = 30.0
+## The damage dealt by the enemy.
 @export var damage = 10.0
-
+## The enemy's current movement speed.
 @export var speed = 40.0
 
 func _ready() -> void:

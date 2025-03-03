@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+## The damage this bullet deals
 @export var damage = 10.0
 
 func _ready() -> void:
