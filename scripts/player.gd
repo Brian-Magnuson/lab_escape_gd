@@ -19,6 +19,12 @@ const JUMP_VELOCITY = -400.0
 ## The amount of damage the player deals.
 @export var damage = 10.0
 
+## Whether the player has died.
+var can_move = true
+var can_jump = true
+var can_attack = true
+var can_animate = true
+
 func _ready() -> void:
 	# Set the hitbox's damage value and start the idle animation.
 	$Hitbox.set_meta("hit_damage", damage)
@@ -32,39 +38,44 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if can_move and can_jump:
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if can_move:
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	# Handle attack.
-	if Input.is_action_pressed("attack"):
-		$Hitbox/CollisionShape2D.set_deferred("disabled", false)
-	else:
-		$Hitbox/CollisionShape2D.set_deferred("disabled", true)
+	if can_attack:
+		if Input.is_action_pressed("attack"):
+			$Hitbox/CollisionShape2D.set_deferred("disabled", false)
+		else:
+			$Hitbox/CollisionShape2D.set_deferred("disabled", true)
 	
 	# Sprite normally faces right; flip if moving left.
-	if direction < 0:
-		$AnimatedSprite2D.flip_h = true
-		$Hitbox.scale.x = -1
-	elif direction > 0:
-		$AnimatedSprite2D.flip_h = false
-		$Hitbox.scale.x = 1
+	if can_move:
+		if direction < 0:
+			$AnimatedSprite2D.flip_h = true
+			$Hitbox.scale.x = -1
+		elif direction > 0:
+			$AnimatedSprite2D.flip_h = false
+			$Hitbox.scale.x = 1
 	
 	# Handle animations
-	if Input.is_action_pressed("attack"):
-		$AnimatedSprite2D.play("attack")
-	elif Input.is_action_just_pressed("jump") and is_on_floor():
-		$AnimatedSprite2D.play("jump")
-	elif is_on_floor() and abs(direction) > 0:
-		$AnimatedSprite2D.play("walk")
-	else:
-		$AnimatedSprite2D.play("idle")
+	if can_animate:
+		if Input.is_action_pressed("attack"):
+			$AnimatedSprite2D.play("attack")
+		elif Input.is_action_just_pressed("jump") and is_on_floor():
+			$AnimatedSprite2D.play("jump")
+		elif is_on_floor() and abs(direction) > 0:
+			$AnimatedSprite2D.play("walk")
+		else:
+			$AnimatedSprite2D.play("idle")
 
 	# Move the player.
 	move_and_slide()
@@ -73,8 +84,19 @@ func _physics_process(delta: float) -> void:
 func hit(amount: float) -> void:
 	health = clamp(health - amount, 0, max_health)
 	health_updated.emit(health, max_health)
-	$IFrameTimer.start()
+	if health == 0.0:
+		death()
+	else:
+		$IFrameTimer.start()
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
+
+## Called when the player dies.
+func death() -> void:
+	$AnimatedSprite2D.play("death")
+	can_move = false
+	can_jump = false
+	can_attack = false
+	can_animate = false
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	# If the player is hit by an enemy, take damage.

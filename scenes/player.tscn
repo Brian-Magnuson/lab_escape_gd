@@ -161,7 +161,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v6kts")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -238,8 +238,7 @@ shape = SubResource("RectangleShape2D_d4wqh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ssiv6")
-animation = &"attack"
-frame_progress = 0.532749
+animation = &"death"
 
 [node name="Hitbox" type="Area2D" parent="." groups=["player_hitbox"]]
 
@@ -257,6 +256,7 @@ shape = SubResource("RectangleShape2D_1j83g")
 debug_color = Color(1, 0.00518643, 0.0615661, 0.42)
 
 [node name="IFrameTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
