@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dsy4y3i3caelu"]
 
-[ext_resource type="Script" path="res://scripts/jelly.gd" id="1_gp17k"]
+[ext_resource type="Script" uid="uid://dypfa0nen5rrw" path="res://scripts/jelly.gd" id="1_gp17k"]
 [ext_resource type="Texture2D" uid="uid://d36sbmax15tjp" path="res://assets/enemies/JellyIdle.png" id="1_ud5q6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kinvn"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=3 uid="uid://bw1sjx2gp5mpl"]
 
 [ext_resource type="Texture2D" uid="uid://cxc5r5dvu5wa5" path="res://assets/player/PlayerDeath.png" id="1_4k1s7"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_7ka4d"]
+[ext_resource type="Script" uid="uid://rbjf1gjsxn2h" path="res://scripts/player.gd" id="1_7ka4d"]
 [ext_resource type="Texture2D" uid="uid://c7x5t5bnrxfht" path="res://assets/player/PlayerIdle.png" id="1_fgp8y"]
 [ext_resource type="Texture2D" uid="uid://be1g7bxp3c483" path="res://assets/player/PlayerAttack.png" id="2_xca2o"]
 [ext_resource type="Texture2D" uid="uid://c1uwstx5hpyig" path="res://assets/player/PlayerJump.png" id="3_r3lmb"]

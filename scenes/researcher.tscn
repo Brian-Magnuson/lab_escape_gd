@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b4uvhje4ecrus"]
 
-[ext_resource type="Script" path="res://scripts/researcher.gd" id="1_sil8i"]
+[ext_resource type="Script" uid="uid://djmvb0p2alv0t" path="res://scripts/researcher.gd" id="1_sil8i"]
 [ext_resource type="Texture2D" uid="uid://bhkddb0pokwvs" path="res://assets/enemies/ResearcherRunning.png" id="2_nv7ao"]
 
 [sub_resource type="Curve2D" id="Curve2D_tjcxo"]
