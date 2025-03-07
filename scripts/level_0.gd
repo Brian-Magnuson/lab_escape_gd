@@ -12,3 +12,7 @@ func _on_player_health_updated(health: float, max_health: float) -> void:
 func _on_player_score_updated(amount: float) -> void:
 	score += amount
 	$CanvasLayer/ScoreLabel.text = "%0.0f" % score
+
+func _on_player_player_died() -> void:
+	await get_tree().create_timer(4.0).timeout
+	$CanvasLayer/ColorRect/AnimationPlayer.play("fade_out")

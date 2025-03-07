@@ -459,4 +459,5 @@ bullet = ExtResource("15_qj06y")
 position = Vector2(200, 495)
 
 [connection signal="health_updated" from="Player" to="." method="_on_player_health_updated"]
+[connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
 [connection signal="score_updated" from="Player" to="." method="_on_player_score_updated"]

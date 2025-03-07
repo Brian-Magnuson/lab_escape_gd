@@ -7,6 +7,8 @@ signal health_updated(health: float, max_health: float)
 ## Emitted when the player needs to update the score by a certain amount.
 signal score_updated(amount: float)
 
+signal player_died()
+
 ## The player's movement speed.
 const SPEED = 150.0
 ## The player's jump velocity. Negative due to y-down coordinate system.
@@ -97,6 +99,7 @@ func death() -> void:
 	can_jump = false
 	can_attack = false
 	can_animate = false
+	player_died.emit()
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	# If the player is hit by an enemy, take damage.
