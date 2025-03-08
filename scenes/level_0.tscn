@@ -1,6 +1,5 @@
 [gd_scene load_steps=26 format=4 uid="uid://q1ded3kw1kq3"]
 
-[ext_resource type="Script" uid="uid://dejqia35uwnld" path="res://scripts/level_0.gd" id="1_bqruw"]
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://assets/tiles/LabTileset.png" id="1_nlk7r"]
 [ext_resource type="PackedScene" uid="uid://bw1sjx2gp5mpl" path="res://scenes/player.tscn" id="2_11nw6"]
 [ext_resource type="Texture2D" uid="uid://biqr3vu0dcgxc" path="res://assets/environment/SemisolidPlatform.png" id="3_ptloe"]
@@ -9,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cqdq0lrkmbfl4" path="res://assets/ui/HealthBarFill.png" id="5_b6id5"]
 [ext_resource type="PackedScene" uid="uid://b4uvhje4ecrus" path="res://scenes/researcher.tscn" id="7_1rgqp"]
 [ext_resource type="PackedScene" uid="uid://cp0v4yyjy8bju" path="res://scenes/lift.tscn" id="8_rmqgc"]
+[ext_resource type="Script" uid="uid://cnyd6dw7arlgs" path="res://scripts/user_interface.gd" id="8_vc1y7"]
 [ext_resource type="LabelSettings" uid="uid://c5bu3f0xusone" path="res://styles/labels.tres" id="9_68k0l"]
 [ext_resource type="PackedScene" uid="uid://dqfacodlaacf3" path="res://scenes/green_gem.tscn" id="10_sgai5"]
 [ext_resource type="PackedScene" uid="uid://dmgwvvfkniaqj" path="res://scenes/health_kit.tscn" id="11_2ko7y"]
@@ -354,7 +354,6 @@ _data = {
 }
 
 [node name="Level0" type="Node"]
-script = ExtResource("1_bqruw")
 
 [node name="Foreground" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -382,9 +381,10 @@ position = Vector2(302, 467)
 [node name="Lift" parent="." instance=ExtResource("8_rmqgc")]
 position = Vector2(76, 495)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UserInterface" type="CanvasLayer" parent="."]
+script = ExtResource("8_vc1y7")
 
-[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
+[node name="HealthBar" type="TextureProgressBar" parent="UserInterface"]
 texture_filter = 1
 custom_minimum_size = Vector2(256, 32)
 offset_left = 20.0
@@ -398,7 +398,7 @@ nine_patch_stretch = true
 texture_under = ExtResource("4_avx8r")
 texture_progress = ExtResource("5_b6id5")
 
-[node name="Label" type="Label" parent="CanvasLayer/HealthBar"]
+[node name="Label" type="Label" parent="UserInterface/HealthBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -411,7 +411,7 @@ text = "50/100"
 label_settings = ExtResource("9_68k0l")
 vertical_alignment = 1
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+[node name="ScoreLabel" type="Label" parent="UserInterface"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -423,16 +423,16 @@ text = "0
 label_settings = ExtResource("9_68k0l")
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
+[node name="ColorRect" type="ColorRect" parent="UserInterface"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/ColorRect"]
 libraries = {
 &"": SubResource("AnimationLibrary_lbrgs")
 }
@@ -458,6 +458,6 @@ bullet = ExtResource("15_qj06y")
 [node name="Bullet" parent="." instance=ExtResource("15_qj06y")]
 position = Vector2(200, 495)
 
-[connection signal="health_updated" from="Player" to="." method="_on_player_health_updated"]
-[connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
-[connection signal="score_updated" from="Player" to="." method="_on_player_score_updated"]
+[connection signal="health_updated" from="Player" to="UserInterface" method="_on_player_health_updated"]
+[connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]
+[connection signal="score_updated" from="Player" to="UserInterface" method="_on_player_score_updated"]
