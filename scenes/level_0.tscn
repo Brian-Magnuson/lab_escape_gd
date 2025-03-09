@@ -1,6 +1,8 @@
-[gd_scene load_steps=26 format=4 uid="uid://q1ded3kw1kq3"]
+[gd_scene load_steps=30 format=4 uid="uid://q1ded3kw1kq3"]
 
+[ext_resource type="Texture2D" uid="uid://b01pi01f8b3ti" path="res://assets/backgrounds/Warehouse1.png" id="1_44yx7"]
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://assets/tiles/LabTileset.png" id="1_nlk7r"]
+[ext_resource type="Texture2D" uid="uid://knndlxqkwnnb" path="res://assets/backgrounds/Warehouse2.png" id="1_vc1y7"]
 [ext_resource type="PackedScene" uid="uid://bw1sjx2gp5mpl" path="res://scenes/player.tscn" id="2_11nw6"]
 [ext_resource type="Texture2D" uid="uid://biqr3vu0dcgxc" path="res://assets/environment/SemisolidPlatform.png" id="3_ptloe"]
 [ext_resource type="PackedScene" uid="uid://dsy4y3i3caelu" path="res://scenes/jelly.tscn" id="3_w75ps"]
@@ -15,6 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://dfw8bn381rsyv" path="res://scenes/blue_potion.tscn" id="12_0kblh"]
 [ext_resource type="PackedScene" uid="uid://b82vu7iyk8vtu" path="res://scenes/guard.tscn" id="14_g4v4n"]
 [ext_resource type="PackedScene" uid="uid://c20mq3kn18dwh" path="res://scenes/bullet.tscn" id="15_qj06y"]
+
+[sub_resource type="Gradient" id="Gradient_44yx7"]
+colors = PackedColorArray(0.223529, 0.239216, 0.258824, 1, 0.309804, 0.329412, 0.356863, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lbrgs"]
+gradient = SubResource("Gradient_44yx7")
+fill_to = Vector2(0, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ah2ou"]
 resource_name = "lab_tiles"
@@ -354,6 +363,42 @@ _data = {
 }
 
 [node name="Level0" type="Node"]
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -5
+texture_filter = 1
+position = Vector2(-1, 0)
+
+[node name="Parallax3" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(0, 220)
+repeat_size = Vector2(800, 0)
+repeat_times = 3
+
+[node name="TextureRect" type="TextureRect" parent="Background/Parallax3"]
+offset_right = 800.0
+offset_bottom = 600.0
+texture = SubResource("GradientTexture2D_lbrgs")
+
+[node name="Parallax2" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(0, 220)
+repeat_size = Vector2(640, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_44yx7")
+centered = false
+
+[node name="Parallax1" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.8, 1)
+scroll_offset = Vector2(0, 220)
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax1"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_vc1y7")
+centered = false
 
 [node name="Foreground" type="TileMapLayer" parent="."]
 texture_filter = 1
