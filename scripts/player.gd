@@ -7,6 +7,7 @@ signal health_updated(health: float, max_health: float)
 ## Emitted when the player needs to update the score by a certain amount.
 signal score_updated(amount: float)
 
+## Emitted when the player's health drops to 0.
 signal player_died()
 
 ## The player's movement speed.
@@ -21,7 +22,6 @@ const JUMP_VELOCITY = -400.0
 ## The amount of damage the player deals.
 @export var damage = 10.0
 
-## Whether the player has died.
 var can_move = true
 var can_jump = true
 var can_attack = true
@@ -100,6 +100,8 @@ func death() -> void:
 	can_attack = false
 	can_animate = false
 	player_died.emit()
+	await get_tree().create_timer(4.0).timeout
+	get_tree().reload_current_scene()
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	# If the player is hit by an enemy, take damage.
