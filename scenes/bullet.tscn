@@ -39,6 +39,7 @@ script = ExtResource("1_rhr06")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_yow7u")
+autoplay = "default"
 frame_progress = 0.309332
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
