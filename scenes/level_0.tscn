@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://q1ded3kw1kq3"]
+[gd_scene load_steps=35 format=4 uid="uid://q1ded3kw1kq3"]
 
 [ext_resource type="Texture2D" uid="uid://b01pi01f8b3ti" path="res://assets/backgrounds/Warehouse1.png" id="1_44yx7"]
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://assets/tiles/LabTileset.png" id="1_nlk7r"]
@@ -543,6 +543,12 @@ sources/0 = SubResource("TileSetAtlasSource_0a1bo")
 sources/1 = SubResource("TileSetAtlasSource_trrqm")
 sources/2 = SubResource("TileSetAtlasSource_vkd6l")
 
+[sub_resource type="Curve2D" id="Curve2D_kkuia"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 4, 1, 0, 0, 0, 0, 4, -71, 0, 0, 0, 0, 4, 1)
+}
+point_count = 3
+
 [sub_resource type="Animation" id="Animation_vc1y7"]
 length = 0.001
 tracks/0/type = "value"
@@ -662,6 +668,7 @@ position = Vector2(302, 467)
 
 [node name="Lift" parent="." instance=ExtResource("8_rmqgc")]
 position = Vector2(76, 495)
+curve = SubResource("Curve2D_kkuia")
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource("8_vc1y7")

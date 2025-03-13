@@ -17,6 +17,8 @@ curve = SubResource("Curve2D_ekrub")
 script = ExtResource("1_a18fk")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(29.3293, 0)
+progress = 29.35
 rotates = false
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="PathFollow2D"]
@@ -26,6 +28,7 @@ sync_to_physics = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/AnimatableBody2D"]
 shape = SubResource("RectangleShape2D_wvqa8")
+one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/AnimatableBody2D"]
 z_index = -5
