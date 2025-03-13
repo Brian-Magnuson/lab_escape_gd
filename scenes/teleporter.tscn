@@ -32,6 +32,8 @@ size = Vector2(32, 8)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_gvw6r")
+autoplay = "default"
+frame_progress = 0.858771
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
