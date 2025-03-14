@@ -748,8 +748,9 @@ bullet = ExtResource("15_qj06y")
 [node name="Bullet" parent="." instance=ExtResource("15_qj06y")]
 position = Vector2(200, 495)
 
-[node name="Teleporter" parent="." instance=ExtResource("20_36cfx")]
-position = Vector2(135, 496)
+[node name="Teleporter" parent="." node_paths=PackedStringArray("teleport_target") instance=ExtResource("20_36cfx")]
+position = Vector2(135, 490)
+teleport_target = NodePath(".")
 
 [connection signal="health_updated" from="Player" to="UserInterface" method="_on_player_health_updated"]
 [connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]
