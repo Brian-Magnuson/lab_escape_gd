@@ -671,6 +671,29 @@ position = Vector2(302, 467)
 position = Vector2(76, 495)
 curve = SubResource("Curve2D_kkuia")
 
+[node name="GreenGem" parent="." instance=ExtResource("10_sgai5")]
+position = Vector2(30, 495)
+
+[node name="GreenGem2" parent="." instance=ExtResource("10_sgai5")]
+position = Vector2(-5, 495)
+
+[node name="HealthKit" parent="." instance=ExtResource("11_2ko7y")]
+position = Vector2(-38, 495)
+
+[node name="BluePotion" parent="." instance=ExtResource("12_0kblh")]
+position = Vector2(-71, 495)
+
+[node name="Guard" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_g4v4n")]
+position = Vector2(728, 435)
+player = NodePath("../Player")
+bullet = ExtResource("15_qj06y")
+
+[node name="Bullet" parent="." instance=ExtResource("15_qj06y")]
+position = Vector2(200, 495)
+
+[node name="TeleporterPair" parent="." instance=ExtResource("20_36cfx")]
+position = Vector2(151, 490)
+
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource("8_vc1y7")
 
@@ -713,7 +736,7 @@ text = "0
 label_settings = ExtResource("9_68k0l")
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="UserInterface"]
+[node name="BlackScreen" type="ColorRect" parent="UserInterface"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -722,34 +745,11 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/ColorRect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/BlackScreen"]
 libraries = {
 &"": SubResource("AnimationLibrary_lbrgs")
 }
 autoplay = "fade_in"
-
-[node name="GreenGem" parent="." instance=ExtResource("10_sgai5")]
-position = Vector2(30, 495)
-
-[node name="GreenGem2" parent="." instance=ExtResource("10_sgai5")]
-position = Vector2(-5, 495)
-
-[node name="HealthKit" parent="." instance=ExtResource("11_2ko7y")]
-position = Vector2(-38, 495)
-
-[node name="BluePotion" parent="." instance=ExtResource("12_0kblh")]
-position = Vector2(-71, 495)
-
-[node name="Guard" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_g4v4n")]
-position = Vector2(728, 435)
-player = NodePath("../Player")
-bullet = ExtResource("15_qj06y")
-
-[node name="Bullet" parent="." instance=ExtResource("15_qj06y")]
-position = Vector2(200, 495)
-
-[node name="TeleporterPair" parent="." instance=ExtResource("20_36cfx")]
-position = Vector2(151, 490)
 
 [connection signal="health_updated" from="Player" to="UserInterface" method="_on_player_health_updated"]
 [connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]

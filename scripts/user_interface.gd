@@ -3,7 +3,7 @@ extends CanvasLayer
 var score = 0.0
 
 func _ready() -> void:
-	$ColorRect/AnimationPlayer.play("fade_in")
+	$BlackScreen/AnimationPlayer.play("fade_in")
 
 func _on_player_health_updated(health: float, max_health: float) -> void:
 	$HealthBar.value = health / max_health
@@ -15,4 +15,4 @@ func _on_player_score_updated(amount: float) -> void:
 
 func _on_player_player_died() -> void:
 	await get_tree().create_timer(2.0).timeout
-	$ColorRect/AnimationPlayer.play("fade_out")
+	$BlackScreen/AnimationPlayer.play("fade_out")
