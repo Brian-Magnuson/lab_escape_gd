@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ca2i2in4p0qp5"]
 
-[ext_resource type="Script" uid="uid://bqsnygj7ibpwm" path="res://scenes/teleporter.gd" id="1_pce0k"]
+[ext_resource type="Script" path="res://scripts/teleporter.gd" id="1_pce0k"]
 [ext_resource type="Texture2D" uid="uid://dmwfnyqvuufue" path="res://assets/environment/Teleporter.png" id="1_vurns"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pce0k"]
