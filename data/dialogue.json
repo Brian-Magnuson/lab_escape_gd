@@ -17,6 +17,73 @@
 					"text": "If you're reading this, the dialogue here failed to load."
 				}
 			]
+		},
+		{
+			"id": "L1AboutHealthUp",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "Research Notes"
+				},
+				{
+					"name": "Sign",
+					"text": "Introducing, the health-up serum!"
+				},
+				{
+					"name": "Sign",
+					"text": "Take one sip and you'll find yourself more healthy than before!"
+				},
+				{
+					"name": "Sign",
+					"text": "We promise it won't turn your body to mush!"
+				}
+			]
+		},
+		{
+			"id": "L1HowToSlap",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "How to slap jellies"
+				},
+				{
+					"name": "Sign",
+					"text": "Step 1: Walk up to a jelly."
+				},
+				{
+					"name": "Sign",
+					"text": "Step 2: Use [Left Mouse Button]."
+				},
+				{
+					"name": "Sign",
+					"text": "Step 3: Marvel at the might of your jelly slapping abilities."
+				}
+			]
+		},
+		{
+			"id": "L1HowToTeleport",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "Teleporter Instructions"
+				},
+				{
+					"name": "Sign",
+					"text": "Stand atop the teleporter and press [E]."
+				},
+				{
+					"name": "Sign",
+					"text": "You will be instantly teleported to the other side."
+				},
+				{
+					"name": "Sign",
+					"text": "In the unlikely event that you teleport without your internal organs..."
+				},
+				{
+					"name": "Sign",
+					"text": "Please seek a medical doctor right away."
+				}
+			]
 		}
 	]
 }
