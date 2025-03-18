@@ -1,0 +1,22 @@
+{
+	"dialogues": [
+		{
+			"id": "Default",
+			"dialogue": [
+				{
+					"name": "Unknown",
+					"text": "If you're reading this, the developer forgot to assign a dialogue here."
+				}
+			]
+		},
+		{
+			"id": "Error",
+			"dialogue": [
+				{
+					"name": "Unknown",
+					"text": "If you're reading this, the dialogue here failed to load."
+				}
+			]
+		}
+	]
+}
