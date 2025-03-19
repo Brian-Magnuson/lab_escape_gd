@@ -763,7 +763,6 @@ libraries = {
 autoplay = "fade_in"
 
 [node name="TextBox" type="ColorRect" parent="UserInterface"]
-visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -795,5 +794,6 @@ autowrap_mode = 2
 [connection signal="health_updated" from="Player" to="UserInterface" method="_on_player_health_updated"]
 [connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]
 [connection signal="score_updated" from="Player" to="UserInterface" method="_on_player_score_updated"]
+[connection signal="sign_read" from="Sign" to="UserInterface" method="_on_sign_sign_read"]
 
 [editable path="TeleporterPair"]
