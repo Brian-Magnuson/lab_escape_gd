@@ -763,6 +763,7 @@ libraries = {
 autoplay = "fade_in"
 
 [node name="TextBox" type="ColorRect" parent="UserInterface"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

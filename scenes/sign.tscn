@@ -17,3 +17,6 @@ texture = ExtResource("1_shbub")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kd50q")
 debug_color = Color(0, 0.647636, 0.205455, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
