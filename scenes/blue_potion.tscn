@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfw8bn381rsyv"]
+[gd_scene load_steps=4 format=3 uid="uid://dfw8bn381rsyv"]
 
 [ext_resource type="Texture2D" uid="uid://cykkp5u43t7od" path="res://assets/items/CyanPotion.png" id="1_suj72"]
+[ext_resource type="Script" uid="uid://wmfxeqafvu2g" path="res://scripts/floater.gd" id="2_wble0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24kir"]
 
@@ -9,6 +10,7 @@
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_suj72")
+script = ExtResource("2_wble0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_24kir")
