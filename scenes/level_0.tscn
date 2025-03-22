@@ -792,6 +792,9 @@ text = "Lorem ipsum odor amet, consectetuer adipiscing elit. Gravida nibh non ma
 label_settings = SubResource("LabelSettings_4pfwt")
 autowrap_mode = 2
 
+[node name="ScrollingTextTimer" type="Timer" parent="UserInterface"]
+wait_time = 0.02
+
 [connection signal="health_updated" from="Player" to="UserInterface" method="_on_player_health_updated"]
 [connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]
 [connection signal="score_updated" from="Player" to="UserInterface" method="_on_player_score_updated"]

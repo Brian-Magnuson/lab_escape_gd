@@ -6,6 +6,8 @@ var dialogue_data: Dictionary
 var current_dialogue: Dictionary
 var current_dialogue_index = -1
 
+var is_scrolling_text = false
+
 func _ready() -> void:
 	$BlackScreen/AnimationPlayer.play("fade_in")
 	var dialogue_json_text = FileAccess.get_file_as_string("res://data/dialogue.json")
@@ -30,19 +32,54 @@ func find_dialogue_with_id(dialogue_id: String) -> Dictionary:
 	return {}
 
 func _on_sign_sign_read(dialogue_id: String) -> void:
+	# If there is no current dialogue...
 	if current_dialogue.is_empty():
+		# Load the dialogue
 		current_dialogue = find_dialogue_with_id(dialogue_id)
 		if current_dialogue.is_empty():
 			printerr("%s: Dialogue failed to load" % name)
 			return
 		current_dialogue_index = 0
-		$TextBox.visible = true
-		$TextBox/Label.text = current_dialogue["dialogue"][current_dialogue_index]["text"]
+		# Begin displaying the dialogue
+		display_dialogue(current_dialogue["dialogue"][current_dialogue_index]["text"])
+	# If the dialogue being displayed is still scrolling...
+	elif is_scrolling_text:
+		# Skip the scrolling and display it instantly
+		display_dialogue(current_dialogue["dialogue"][current_dialogue_index]["text"], true)
+	# If there is more dialogue...
 	elif current_dialogue_index + 1 < current_dialogue["dialogue"].size():
+		# Display the next piece of dialogue
 		current_dialogue_index += 1
-		$TextBox/Label.text = current_dialogue["dialogue"][current_dialogue_index]["text"]
+		display_dialogue(current_dialogue["dialogue"][current_dialogue_index]["text"])
+	# If there is no more dialogue left...
 	else:
+		# Unload the dialogue
 		current_dialogue_index = -1
 		current_dialogue = {}
 		$TextBox.visible = false
 		
+func display_dialogue(text: String, instant: bool = false) -> void:
+	# Display the dialogue box
+	$TextBox.visible = true
+	# If not instant...
+	if not instant:
+		# Start scrolling text
+		is_scrolling_text = true
+		# Keep scrolling text as long as the scrolling text timer is running
+		$ScrollingTextTimer.start()
+		for i in text.length():
+			$TextBox/Label.text = text.left(i + 1)
+			# If the scrolling text timer, for some reason, isn't running...
+			if $ScrollingTextTimer.is_stopped():
+				# End this loop
+				break
+			await $ScrollingTextTimer.timeout
+		is_scrolling_text = false
+	# If instant text...
+	else:
+		# Stop the scrolling text timer if it has started
+		# This will break any scrolling loops that have started
+		$ScrollingTextTimer.stop()
+		# Display all the text at once
+		$TextBox/Label.text = text
+		is_scrolling_text = false
