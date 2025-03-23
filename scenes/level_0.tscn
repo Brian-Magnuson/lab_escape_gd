@@ -792,6 +792,29 @@ text = "Lorem ipsum odor amet, consectetuer adipiscing elit. Gravida nibh non ma
 label_settings = SubResource("LabelSettings_4pfwt")
 autowrap_mode = 2
 
+[node name="NameBox" type="ColorRect" parent="UserInterface/TextBox"]
+layout_mode = 1
+anchors_preset = -1
+offset_top = -60.0
+offset_right = 180.0
+offset_bottom = -10.0
+color = Color(0, 0, 0, 0.6)
+
+[node name="Label" type="Label" parent="UserInterface/TextBox/NameBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name"
+label_settings = SubResource("LabelSettings_4pfwt")
+autowrap_mode = 2
+
 [node name="ScrollingTextTimer" type="Timer" parent="UserInterface"]
 wait_time = 0.02
 

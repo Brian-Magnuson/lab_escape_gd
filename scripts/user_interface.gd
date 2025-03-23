@@ -41,16 +41,16 @@ func _on_sign_sign_read(dialogue_id: String) -> void:
 			return
 		current_dialogue_index = 0
 		# Begin displaying the dialogue
-		display_dialogue(current_dialogue["dialogue"][current_dialogue_index]["text"])
+		display_dialogue(current_dialogue["dialogue"][current_dialogue_index])
 	# If the dialogue being displayed is still scrolling...
 	elif is_scrolling_text:
 		# Skip the scrolling and display it instantly
-		display_dialogue(current_dialogue["dialogue"][current_dialogue_index]["text"], true)
+		display_dialogue(current_dialogue["dialogue"][current_dialogue_index], true)
 	# If there is more dialogue...
 	elif current_dialogue_index + 1 < current_dialogue["dialogue"].size():
 		# Display the next piece of dialogue
 		current_dialogue_index += 1
-		display_dialogue(current_dialogue["dialogue"][current_dialogue_index]["text"])
+		display_dialogue(current_dialogue["dialogue"][current_dialogue_index])
 	# If there is no more dialogue left...
 	else:
 		# Unload the dialogue
@@ -58,17 +58,18 @@ func _on_sign_sign_read(dialogue_id: String) -> void:
 		current_dialogue = {}
 		$TextBox.visible = false
 		
-func display_dialogue(text: String, instant: bool = false) -> void:
+func display_dialogue(dialogue: Dictionary, instant: bool = false) -> void:
 	# Display the dialogue box
 	$TextBox.visible = true
+	$TextBox/NameBox/Label.text = dialogue["name"]
 	# If not instant...
 	if not instant:
 		# Start scrolling text
 		is_scrolling_text = true
 		# Keep scrolling text as long as the scrolling text timer is running
 		$ScrollingTextTimer.start()
-		for i in text.length():
-			$TextBox/Label.text = text.left(i + 1)
+		for i in dialogue["text"].length():
+			$TextBox/Label.text = dialogue["text"].left(i + 1)
 			# If the scrolling text timer, for some reason, isn't running...
 			if $ScrollingTextTimer.is_stopped():
 				# End this loop
@@ -81,5 +82,5 @@ func display_dialogue(text: String, instant: bool = false) -> void:
 		# This will break any scrolling loops that have started
 		$ScrollingTextTimer.stop()
 		# Display all the text at once
-		$TextBox/Label.text = text
+		$TextBox/Label.text = dialogue["text"]
 		is_scrolling_text = false
