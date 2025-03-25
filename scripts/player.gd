@@ -22,6 +22,9 @@ const JUMP_VELOCITY = -400.0
 ## The amount of damage the player deals.
 @export var damage = 10.0
 
+var max_speed = 800.0
+var resistance = 0.0
+
 var can_move = true
 var can_jump = true
 var can_attack = true
@@ -51,6 +54,14 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	# Dampen velocity
+	velocity *= (1 - resistance)
+	
+	# Clamp speed
+	velocity.x = clamp(velocity.x, -max_speed, max_speed)
+	velocity.y = clamp(velocity.y, -max_speed, max_speed)
+	
 	
 	# Handle attack.
 	if can_attack:
