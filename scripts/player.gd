@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if can_move and can_jump:
-		if Input.is_action_just_pressed("jump") and is_on_floor():
+		if Input.is_action_just_pressed("jump") and (is_on_floor() or get_meta("in_water", false)):
 			velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -54,6 +54,12 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	# Check if the player is in the water
+	if get_meta("in_water", false) as bool:
+		resistance = 0.1
+	else:
+		resistance = 0.0
 	
 	# Dampen velocity
 	velocity *= (1 - resistance)
