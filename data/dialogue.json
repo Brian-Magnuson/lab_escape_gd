@@ -84,6 +84,81 @@
 					"text": "Please seek a medical doctor right away."
 				}
 			]
+		},
+		{
+			"id": "L1Number8",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "Subject No. 8 Research Notes"
+				},
+				{
+					"name": "Sign",
+					"text": "No. 8 survived for a full 5 minutes yesterday before being incapacitated"
+				},
+				{
+					"name": "Sign",
+					"text": "Currently a new record from 4.5 minutes"
+				},
+				{
+					"name": "Sign",
+					"text": "Let's all show our support for No. 8!"
+				},
+				{
+					"name": "Player",
+					"text": "What exactly are they doing here?"
+				}
+			]
+		},
+		{
+			"id": "L1PoorJerry",
+			"dialogue": [
+				{
+					"name": "Player",
+					"text": "It's looks like a memo"
+				},
+				{
+					"name": "Sign",
+					"text": "Jerry said the funniest thing yesterday."
+				},
+				{
+					"name": "Sign",
+					"text": "He said that one of the jellies looked a lot like our buddy who disappeared the other day."
+				},
+				{
+					"name": "Sign",
+					"text": "He even suggested that the guys up top are turning researchers into jellies."
+				},
+				{
+					"name": "Sign",
+					"text": "He cracks me up every time."
+				},
+				{
+					"name": "Sign",
+					"text": "It's a shame we'll never see him again."
+				}
+			]
+		},
+		{
+			"id": "L1SecurityMemo",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "Please stop piling boxes everywhere"
+				},
+				{
+					"name": "Sign",
+					"text": "It's getting harder to move around the lab"
+				},
+				{
+					"name": "Sign",
+					"text": "Plus, someone could easily hide behind them where the guards cannot see"
+				},
+				{
+					"name": "Sign",
+					"text": "For the sake of our security, clean up after yourselves"
+				}
+			]
 		}
 	]
 }
