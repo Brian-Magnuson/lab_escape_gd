@@ -15,6 +15,8 @@ extends Path2D
 ## The full speed of the bullets that the guard shoots.
 @export var bullet_speed = 50
 
+var player_in_range = false
+
 func _ready() -> void:
 	$PathFollow2D/Hitbox.set_meta("hit_damage", damage)
 	$PathFollow2D/AnimatedSprite2D.play("walking")
@@ -24,19 +26,31 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Move the guard along the path.
 	$PathFollow2D.progress += speed * delta
-	# If the guard is moving, guard faces direction of movement.
-	if speed != 0:
-		if $PathFollow2D.progress_ratio >= 0.5:
-			$PathFollow2D/AnimatedSprite2D.flip_h = true
-		else:
-			$PathFollow2D/AnimatedSprite2D.flip_h = false
-	# If the guard is shooting, guard faces player.
-	else:
+	# If the player is in range and is not hidden...
+	if player_in_range and not player.get_meta("is_hidden", false):
+		# Face the player
 		var v = player.global_position - $PathFollow2D.global_position;
 		if v.x < 0:
 			$PathFollow2D/AnimatedSprite2D.flip_h = true
 		else:
 			$PathFollow2D/AnimatedSprite2D.flip_h = false
+		# Shoot at the player
+		if $PathFollow2D/ShootTimer.is_stopped():
+			speed = 0
+			$PathFollow2D/AnimatedSprite2D.play("shooting")
+			shoot_bullet()
+			$PathFollow2D/ShootTimer.start()
+	# If the player is not in range or the player is hidden...
+	else:
+		# Face in the moving direction
+		if $PathFollow2D.progress_ratio >= 0.5:
+			$PathFollow2D/AnimatedSprite2D.flip_h = true
+		else:
+			$PathFollow2D/AnimatedSprite2D.flip_h = false
+		# Move normally
+		speed = 40.0
+		$PathFollow2D/AnimatedSprite2D.play("walking")
+		$PathFollow2D/ShootTimer.stop()
 
 ## Called when the guard takes damage.
 func hit(amount: float) -> void:
@@ -84,17 +98,12 @@ func _on_i_frame_timer_timeout() -> void:
 func _on_detection_zone_body_entered(body: Node2D) -> void:
 	# If the player enters the detection zone, stop moving and shoot.
 	if body.is_in_group("player"):
-		speed = 0
-		$PathFollow2D/AnimatedSprite2D.play("shooting")
-		shoot_bullet()
-		$PathFollow2D/ShootTimer.start()
-		
+		player_in_range = true
+
 func _on_detection_zone_body_exited(body: Node2D) -> void:
 	# If the player exits the detection zone, resume moving.
 	if body.is_in_group("player"):
-		speed = 40.0
-		$PathFollow2D/AnimatedSprite2D.play("walking")
-		$PathFollow2D/ShootTimer.stop()
+		player_in_range = false
 
 func _on_shoot_timer_timeout() -> void:
 	shoot_bullet()
