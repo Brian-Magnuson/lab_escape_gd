@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://q1ded3kw1kq3"]
+[gd_scene load_steps=43 format=4 uid="uid://q1ded3kw1kq3"]
 
 [ext_resource type="Texture2D" uid="uid://b01pi01f8b3ti" path="res://assets/backgrounds/Warehouse1.png" id="1_44yx7"]
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://assets/tiles/LabTileset.png" id="1_nlk7r"]
@@ -612,6 +612,18 @@ font_size = 32
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_0a1bo"]
+offsets = PackedFloat32Array(0, 0.785016, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_trrqm"]
+gradient = SubResource("Gradient_0a1bo")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="Level0" type="Node"]
 
 [node name="Background" type="Node2D" parent="."]
@@ -821,11 +833,18 @@ autowrap_mode = 2
 wait_time = 0.02
 
 [node name="ForceField" parent="." instance=ExtResource("23_pikno")]
-position = Vector2(306, 231)
+position = Vector2(242, 231)
 scale = Vector2(3, 3)
 
 [node name="BoxCluster" parent="." instance=ExtResource("24_0a1bo")]
 position = Vector2(779, 488)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-37, 507)
+scale = Vector2(0.75, 2.5)
+energy = 0.5
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_trrqm")
 
 [connection signal="health_updated" from="Player" to="UserInterface" method="_on_player_health_updated"]
 [connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]
