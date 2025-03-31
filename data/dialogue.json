@@ -159,6 +159,52 @@
 					"text": "For the sake of our security, clean up after yourselves"
 				}
 			]
+		},
+		{
+			"id": "L1AShortcut",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "One-way shortcut to the Water Labs"
+				},
+				{
+					"name": "Sign",
+					"text": "Remember, press E to teleport"
+				},
+				{
+					"name": "Sign",
+					"text": "You should hold your breath"
+				}
+			]
+		},
+		{
+			"id": "L1FloatingWater",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "A basic principle of fluids"
+				},
+				{
+					"name": "Sign",
+					"text": "If you have a low enough density..."
+				},
+				{
+					"name": "Sign",
+					"text": "...buoyant forces will allow you to float upward in the surrounding fluid"
+				},
+				{
+					"name": "Sign",
+					"text": "So naturally, we made floating water."
+				},
+				{
+					"name": "Sign",
+					"text": "And now you can float while you float!"
+				},
+				{
+					"name": "Sign",
+					"text": "Give it a try!"
+				}
+			]
 		}
 	]
 }
