@@ -686,6 +686,7 @@ position = Vector2(101, 436)
 texture = ExtResource("3_trrqm")
 lifetime = 20.0
 randomness = 1.0
+visibility_rect = Rect2(-100, -100, 600, 200)
 process_material = SubResource("ParticleProcessMaterial_m44w4")
 
 [node name="BackgroundTiles" type="TileMapLayer" parent="Background"]
