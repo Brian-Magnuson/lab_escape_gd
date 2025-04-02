@@ -161,7 +161,7 @@
 			]
 		},
 		{
-			"id": "L1AShortcut",
+			"id": "L2AShortcut",
 			"dialogue": [
 				{
 					"name": "Sign",
@@ -178,7 +178,7 @@
 			]
 		},
 		{
-			"id": "L1FloatingWater",
+			"id": "L2FloatingWater",
 			"dialogue": [
 				{
 					"name": "Sign",
@@ -203,6 +203,87 @@
 				{
 					"name": "Sign",
 					"text": "Give it a try!"
+				}
+			]
+		},
+		{
+			"id": "L2JumpHigher",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "Hold [Space] to jump higher"
+				},
+				{
+					"name": "Sign",
+					"text": "Because when something barely within reach, you just gotta try a little harder"
+				},
+				{
+					"name": "Sign",
+					"text": "Words to live by"
+				}
+			]
+		},
+		{
+			"id": "L2NoSwimming",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "No Swimming"
+				}
+			]
+		},
+		{
+			"id": "L2Number8",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "Subject No. 8 Research Notes"
+				},
+				{
+					"name": "Sign",
+					"text": "No. 8 loved coming to the Water Labs"
+				},
+				{
+					"name": "Sign",
+					"text": "I remember him smiling as he rode through the floating water columns"
+				},
+				{
+					"name": "Sign",
+					"text": "And then one day, he couldn't escape one of the columns..."
+				},
+				{
+					"name": "Sign",
+					"text": "And he drowned..."
+				},
+				{
+					"name": "Sign",
+					"text": "So we changed the rules..."
+				},
+				{
+					"name": "Sign",
+					"text": "And now No. 8 can no longer drown"
+				}
+			]
+		},
+		{
+			"id": "L2ToWarehouse",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "To Warehouse"
+				},
+				{
+					"name": "Sign",
+					"text": "It's heavily guarded lol"
+				}
+			]
+		},
+		{
+			"id": "L2ToWarehouse",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "To Water Labs"
 				}
 			]
 		}
