@@ -286,6 +286,203 @@
 					"text": "To Water Labs"
 				}
 			]
+		},
+		{
+			"id": "L3Attention",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "Attention all staff"
+				},
+				{
+					"name": "Sign",
+					"text": "As a reminder, in any controlled experiment, researchers must not interfere with the results"
+				},
+				{
+					"name": "Sign",
+					"text": "We do not condone falsification of any data whatsoever"
+				},
+				{
+					"name": "Sign",
+					"text": "And that means that all test subjects are to remain in the lab at all times"
+				},
+				{
+					"name": "Sign",
+					"text": "Anyone caught assisting a test subject in escaping..."
+				},
+				{
+					"name": "Sign",
+					"text": "...will be punished severely"
+				}
+			]
+		},
+		{
+			"id": "L3DivingChamber",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "Diving chamber"
+				},
+				{
+					"name": "Sign",
+					"text": "Now with more teleporters!"
+				}
+			]
+		},
+		{
+			"id": "L3GreenWater",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "You might be wondering why this water looks green"
+				},
+				{
+					"name": "Sign",
+					"text": "Well my friend, I must warn you..."
+				},
+				{
+					"name": "Sign",
+					"text": "This water is actually REAL ACID!!"
+				},
+				{
+					"name": "Player",
+					"text": "..."
+				},
+				{
+					"name": "Sign",
+					"text": "LOL JK"
+				}
+			]
+		},
+		{
+			"id": "L3GrowingDissent",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "The lab has been in an uproar since some of the researchers started supporting No. 8"
+				},
+				{
+					"name": "Sign",
+					"text": "Many of our colleagues have disappeared and security has been increased"
+				},
+				{
+					"name": "Sign",
+					"text": "We certainly don't support No. 8 and we definitely don't want him to survive!"
+				}
+			]
+		},
+		{
+			"id": "L3Number8",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "Subject No. 8 Research Notes"
+				},
+				{
+					"name": "Sign",
+					"text": "No. 8 loved to jump on some of the platforms around the lab"
+				},
+				{
+					"name": "Sign",
+					"text": "He seems to like jumping around a lot"
+				},
+				{
+					"name": "Sign",
+					"text": "Then he fell over and hurt himself"
+				},
+				{
+					"name": "Sign",
+					"text": "And so we changed the rules again"
+				},
+				{
+					"name": "Sign",
+					"text": "And now he can survive a fall from any height"
+				},
+				{
+					"name": "Player",
+					"text": "..."
+				},
+				{
+					"name": "Player",
+					"text": "Are these really research notes?"
+				}
+			]
+		},
+		{
+			"id": "L3OutOfOrder",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "Lift out of order"
+				},
+				{
+					"name": "Sign",
+					"text": "Can someone fix it already?!"
+				}
+			]
+		},
+		{
+			"id": "L3SecurityMemo",
+			"dialogue": [
+				{
+					"name": "Player",
+					"text": "It's looks like a note from one of the guards"
+				},
+				{
+					"name": "Sign",
+					"text": "Why did they stick me here? On a platform surrounded by floating water?"
+				},
+				{
+					"name": "Sign",
+					"text": "I have a fear of drowning..."
+				}
+			]
+		},
+		{
+			"id": "L3Sticky",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "STICKY KEEEEEEEEEEEYYYYYYYYYYYYYYYYYYYSSSSSSSSSSSS"
+				},
+				{
+					"name": "PLayer",
+					"text": "..."
+				},
+				{
+					"name": "PLayer",
+					"text": "There's a bunch of obfuscated text here."
+				},
+				{
+					"name": "PLayer",
+					"text": "I can barely make you what they were trying to say."
+				},
+				{
+					"name": "Sign",
+					"text": ".......... LEAVE ......... US ..........."
+				},
+				{
+					"name": "Sign",
+					"text": "88888888888888888888888888888888888888888"
+				},
+				{
+					"name": "Player",
+					"text": "The sign is covered with jelly."
+				}
+			]
+		},
+		{
+			"id": "L3Warehouse",
+			"dialogue": [
+				{
+					"name": "Sign",
+					"text": "To warehouse"
+				},
+				{
+					"name": "Sign",
+					"text": "As you'd expect, it's heavily guarded"
+				}
+			]
 		}
 	]
 }
