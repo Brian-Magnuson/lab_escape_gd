@@ -239,7 +239,7 @@ shape = SubResource("RectangleShape2D_d4wqh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ssiv6")
-animation = &"idle"
+animation = &"walk"
 
 [node name="Hitbox" type="Area2D" parent="." groups=["player_hitbox"]]
 

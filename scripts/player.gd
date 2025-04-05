@@ -25,10 +25,10 @@ const JUMP_VELOCITY = -400.0
 var max_speed = 800.0
 var resistance = 0.0
 
-var can_move = true
-var can_jump = true
-var can_attack = true
-var can_animate = true
+@export var can_move = true
+@export var can_jump = true
+@export var can_attack = true
+@export var can_animate = true
 
 func _ready() -> void:
 	# Set the hitbox's damage value and start the idle animation.
