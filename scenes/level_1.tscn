@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dh40yc5teu7c7"]
+[gd_scene load_steps=36 format=4 uid="uid://dh40yc5teu7c7"]
 
 [ext_resource type="Texture2D" uid="uid://b01pi01f8b3ti" path="res://assets/backgrounds/Warehouse1.png" id="1_x2fux"]
 [ext_resource type="Texture2D" uid="uid://knndlxqkwnnb" path="res://assets/backgrounds/Warehouse2.png" id="2_s7g0b"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dghxv6wir8pe7" path="res://assets/tiles/LabTilesetDarker.png" id="6_iw4em"]
 [ext_resource type="TileSet" uid="uid://cjj3lgustq04" path="res://assets/tiles/tiles.tres" id="7_hnsmf"]
 [ext_resource type="PackedScene" uid="uid://bw1sjx2gp5mpl" path="res://scenes/player.tscn" id="8_nossa"]
+[ext_resource type="PackedScene" uid="uid://c77s6gstc62gs" path="res://scenes/sign.tscn" id="14_2aecg"]
+[ext_resource type="PackedScene" uid="uid://dsy4y3i3caelu" path="res://scenes/jelly.tscn" id="15_6dial"]
+[ext_resource type="PackedScene" uid="uid://cv5a0kc0mry3d" path="res://scenes/teleporter_pair.tscn" id="16_7nomh"]
+[ext_resource type="PackedScene" uid="uid://dqfacodlaacf3" path="res://scenes/green_gem.tscn" id="17_1s4pk"]
 [ext_resource type="Script" uid="uid://cnyd6dw7arlgs" path="res://scripts/user_interface.gd" id="19_bamb7"]
 [ext_resource type="Texture2D" uid="uid://w4yl13wfmkrv" path="res://assets/ui/HealthBarFrame.png" id="20_8jqp6"]
 [ext_resource type="Texture2D" uid="uid://cqdq0lrkmbfl4" path="res://assets/ui/HealthBarFill.png" id="21_jscgt"]
@@ -793,6 +797,47 @@ autowrap_mode = 2
 [node name="ScrollingTextTimer" type="Timer" parent="UserInterface"]
 wait_time = 0.02
 
+[node name="Sign" parent="." instance=ExtResource("14_2aecg")]
+position = Vector2(533, 970)
+dialogue_id = "L1HowToSlap"
+
+[node name="Sign2" parent="." instance=ExtResource("14_2aecg")]
+position = Vector2(933, 970)
+dialogue_id = "L1PoorJerry"
+
+[node name="Sign3" parent="." instance=ExtResource("14_2aecg")]
+position = Vector2(1189, 970)
+dialogue_id = "L1HowToTeleport"
+
+[node name="Jelly" parent="." instance=ExtResource("15_6dial")]
+position = Vector2(634, 979)
+scale = Vector2(-1, 1)
+
+[node name="Jelly2" parent="." instance=ExtResource("15_6dial")]
+position = Vector2(868, 979)
+scale = Vector2(-1, 1)
+
+[node name="Jelly3" parent="." instance=ExtResource("15_6dial")]
+position = Vector2(990, 979)
+scale = Vector2(-1, 1)
+
+[node name="TeleporterPair" parent="." instance=ExtResource("16_7nomh")]
+position = Vector2(1258, 970)
+
+[node name="TeleporterB" parent="TeleporterPair" index="1"]
+position = Vector2(-1078, -256)
+
+[node name="GreenGem" parent="." instance=ExtResource("17_1s4pk")]
+position = Vector2(1061, 942)
+
+[node name="GreenGem2" parent="." instance=ExtResource("17_1s4pk")]
+position = Vector2(1109, 942)
+
 [connection signal="health_updated" from="Player" to="UserInterface" method="_on_player_health_updated"]
 [connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]
 [connection signal="score_updated" from="Player" to="UserInterface" method="_on_player_score_updated"]
+[connection signal="sign_read" from="Sign" to="UserInterface" method="_on_sign_sign_read"]
+[connection signal="sign_read" from="Sign2" to="UserInterface" method="_on_sign_sign_read"]
+[connection signal="sign_read" from="Sign3" to="UserInterface" method="_on_sign_sign_read"]
+
+[editable path="TeleporterPair"]
