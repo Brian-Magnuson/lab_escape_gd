@@ -84,3 +84,10 @@ func display_dialogue(dialogue: Dictionary, instant: bool = false) -> void:
 		# Display all the text at once
 		$TextBox/Label.text = dialogue["text"]
 		is_scrolling_text = false
+
+
+func _on_sign_sign_stop_read() -> void:
+	current_dialogue_index = -1
+	current_dialogue = {}
+	$TextBox.visible = false
+	$ScrollingTextTimer.stop()

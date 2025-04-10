@@ -1,6 +1,7 @@
 extends Area2D
 
 signal sign_read(dialogue_id: String)
+signal sign_stop_read()
 
 @export var dialogue_id: String = "Default"
 
@@ -13,6 +14,7 @@ func _on_body_entered(body: Node) -> void:
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):
 		player_in_range = false
+		sign_stop_read.emit()
 		
 func _input(event: InputEvent) -> void:
 	if player_in_range and event.is_action_pressed("interact"):

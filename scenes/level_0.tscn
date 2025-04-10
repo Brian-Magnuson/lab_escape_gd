@@ -878,5 +878,6 @@ texture = SubResource("GradientTexture2D_trrqm")
 [connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]
 [connection signal="score_updated" from="Player" to="UserInterface" method="_on_player_score_updated"]
 [connection signal="sign_read" from="Sign" to="UserInterface" method="_on_sign_sign_read"]
+[connection signal="sign_stop_read" from="Sign" to="UserInterface" method="_on_sign_sign_stop_read"]
 
 [editable path="TeleporterPair"]
