@@ -72,7 +72,7 @@ size = Vector2(14, 21)
 size = Vector2(14, 21)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l1da8"]
-radius = 80.0
+radius = 120.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvcwv"]
 bg_color = Color(0.890589, 0.0620723, 0.0367066, 1)
