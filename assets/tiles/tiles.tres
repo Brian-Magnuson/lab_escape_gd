@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://cjj3lgustq04"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://cjj3lgustq04"]
 
 [ext_resource type="Texture2D" uid="uid://ftjg3puu72lw" path="res://assets/tiles/LabTileset.png" id="1_r2aw4"]
 [ext_resource type="Texture2D" uid="uid://biqr3vu0dcgxc" path="res://assets/environment/SemisolidPlatform.png" id="2_3dp4r"]
 [ext_resource type="Texture2D" uid="uid://dghxv6wir8pe7" path="res://assets/tiles/LabTilesetDarker.png" id="3_3dp4r"]
+[ext_resource type="Texture2D" uid="uid://chjou6k1m7ofd" path="res://assets/tiles/Asphalt.png" id="4_kgegb"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3dp4r"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -265,6 +266,14 @@ texture_region_size = Vector2i(32, 32)
 4:2/0/terrains_peering_bit/top_side = 1
 4:2/0/terrains_peering_bit/top_right_corner = 1
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_47w4w"]
+texture = ExtResource("4_kgegb")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
 [resource]
 tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 1
@@ -278,3 +287,4 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_ah2ou")
 sources/1 = SubResource("TileSetAtlasSource_eq60s")
 sources/2 = SubResource("TileSetAtlasSource_kgegb")
+sources/3 = SubResource("TileSetAtlasSource_47w4w")
