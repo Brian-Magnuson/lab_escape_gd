@@ -773,4 +773,5 @@ texture = ExtResource("15_kcc3o")
 position = Vector2(265, 562)
 scale = Vector2(0.45, 1.5)
 
+[connection signal="pressed" from="UserInterface/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UserInterface/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
