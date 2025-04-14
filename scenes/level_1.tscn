@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://dh40yc5teu7c7"]
+[gd_scene load_steps=52 format=4 uid="uid://dh40yc5teu7c7"]
 
 [ext_resource type="Texture2D" uid="uid://b01pi01f8b3ti" path="res://assets/backgrounds/Warehouse1.png" id="1_x2fux"]
 [ext_resource type="Texture2D" uid="uid://knndlxqkwnnb" path="res://assets/backgrounds/Warehouse2.png" id="2_s7g0b"]
@@ -25,6 +25,8 @@
 [ext_resource type="FontFile" uid="uid://ovusp05cp1yp" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="23_y0ove"]
 [ext_resource type="PackedScene" uid="uid://bvlhnwbgnewhs" path="res://scenes/box_cluster_b.tscn" id="24_s7g0b"]
 [ext_resource type="PackedScene" uid="uid://dfw8bn381rsyv" path="res://scenes/blue_potion.tscn" id="25_x2fux"]
+[ext_resource type="PackedScene" uid="uid://c0ibr3qq4r1wh" path="res://scenes/exit_door.tscn" id="26_mmfjm"]
+[ext_resource type="PackedScene" path="res://scenes/level_A.tscn" id="27_k8ld0"]
 
 [sub_resource type="Gradient" id="Gradient_44yx7"]
 colors = PackedColorArray(0.223529, 0.239216, 0.258824, 1, 0.309804, 0.329412, 0.356863, 1)
@@ -974,6 +976,11 @@ position = Vector2(741, 289)
 
 [node name="BluePotion" parent="." instance=ExtResource("25_x2fux")]
 position = Vector2(869, 290)
+
+[node name="ExitDoor" parent="." instance=ExtResource("26_mmfjm")]
+z_index = -2
+position = Vector2(1373, 302)
+next_scene = ExtResource("27_k8ld0")
 
 [connection signal="health_updated" from="Player" to="UserInterface" method="_on_player_health_updated"]
 [connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]
