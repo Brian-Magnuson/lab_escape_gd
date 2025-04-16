@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://klc86qbi51vx"]
+[gd_scene load_steps=31 format=4 uid="uid://b0csauuthn14o"]
 
 [ext_resource type="Script" uid="uid://bpmup3tc5g3dm" path="res://scripts/title.gd" id="1_83ncp"]
 [ext_resource type="Texture2D" uid="uid://b01pi01f8b3ti" path="res://assets/backgrounds/Warehouse1.png" id="2_sxold"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://biqr3vu0dcgxc" path="res://assets/environment/SemisolidPlatform.png" id="6_e4uir"]
 [ext_resource type="Texture2D" uid="uid://dghxv6wir8pe7" path="res://assets/tiles/LabTilesetDarker.png" id="7_g801i"]
 [ext_resource type="TileSet" uid="uid://cjj3lgustq04" path="res://assets/tiles/tiles.tres" id="8_4t8yx"]
+[ext_resource type="FontFile" uid="uid://ovusp05cp1yp" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="9_ih6pn"]
 
 [sub_resource type="Gradient" id="Gradient_44yx7"]
 colors = PackedColorArray(0.223529, 0.239216, 0.258824, 1, 0.309804, 0.329412, 0.356863, 1)
@@ -603,6 +604,49 @@ _data = {
 &"fade_out": SubResource("Animation_ypn4w")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_7lgdl"]
+font = ExtResource("9_ih6pn")
+font_size = 20
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ih6pn"]
+resource_name = "scroll"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(280, 399), Vector2(280, -661)]
+}
+
+[sub_resource type="Animation" id="Animation_7lgdl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(228, 399)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c6kru"]
+_data = {
+&"RESET": SubResource("Animation_7lgdl"),
+&"scroll": SubResource("Animation_ih6pn")
+}
+
 [node name="Title" type="Node"]
 script = ExtResource("1_83ncp")
 
@@ -682,3 +726,47 @@ libraries = {
 &"": SubResource("AnimationLibrary_lbrgs")
 }
 autoplay = "fade_in"
+
+[node name="Credits" type="Label" parent="."]
+z_index = -4
+texture_filter = 1
+offset_left = 228.0
+offset_top = 399.0
+offset_right = 525.0
+offset_bottom = 1208.0
+text = "No. 8
+
+Created By
+    Brian Magnuson
+
+Scripting
+    Brian Magnuson
+
+Art
+    Brian Magnuson
+
+Music
+    \"Sanctuary\"
+    by Abstraction
+    www.abstractionmusic.com
+
+    \"Box Jump\"
+    by Abstraction
+    www.abstractionmusic.com
+
+Level Design
+    Brian Magnuson
+
+Special Thanks
+    UF Digital Worlds Institute
+
+Thank You for Playing!
+
+"
+label_settings = SubResource("LabelSettings_7lgdl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Credits"]
+libraries = {
+&"": SubResource("AnimationLibrary_c6kru")
+}
+autoplay = "scroll"
