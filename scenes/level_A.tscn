@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cm3xvouxmewkv"]
+[gd_scene load_steps=36 format=4 uid="uid://cm3xvouxmewkv"]
 
 [ext_resource type="Texture2D" uid="uid://b6oumgjptrvbb" path="res://assets/backgrounds/Outside0.png" id="1_q76dc"]
 [ext_resource type="Texture2D" uid="uid://blki7d1j2ue6h" path="res://assets/backgrounds/Outside1.png" id="2_5ynks"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cqdq0lrkmbfl4" path="res://assets/ui/HealthBarFill.png" id="11_gpn64"]
 [ext_resource type="LabelSettings" uid="uid://c5bu3f0xusone" path="res://styles/labels.tres" id="12_tegjd"]
 [ext_resource type="FontFile" uid="uid://ovusp05cp1yp" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="13_sj2ea"]
+[ext_resource type="Script" uid="uid://n87df0gmoicu" path="res://scripts/level_load_trigger.gd" id="16_jqaso"]
+[ext_resource type="Texture2D" uid="uid://bemfkangid8rl" path="res://assets/environment/ExitSign.png" id="17_2d3aa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36cfx"]
 resource_name = "lab_tiles"
@@ -605,6 +607,12 @@ font_size = 32
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ynks"]
+size = Vector2(20, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2d3aa"]
+size = Vector2(20, 300)
+
 [node name="Level0" type="Node"]
 
 [node name="Background" type="Node2D" parent="."]
@@ -796,6 +804,27 @@ autowrap_mode = 2
 [node name="ScrollingTextTimer" type="Timer" parent="UserInterface"]
 wait_time = 0.02
 
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-10, 225)
+shape = SubResource("RectangleShape2D_5ynks")
+
+[node name="LevelLoadTrigger" type="Area2D" parent="."]
+script = ExtResource("16_jqaso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelLoadTrigger"]
+position = Vector2(1210, 225)
+shape = SubResource("RectangleShape2D_2d3aa")
+debug_color = Color(0, 0.647636, 0.205455, 0.42)
+
+[node name="ExitSign" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(1110, 336)
+texture = ExtResource("17_2d3aa")
+
 [connection signal="health_updated" from="Player" to="UserInterface" method="_on_player_health_updated"]
 [connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]
 [connection signal="score_updated" from="Player" to="UserInterface" method="_on_player_score_updated"]
+[connection signal="body_entered" from="LevelLoadTrigger" to="LevelLoadTrigger" method="_on_body_entered"]
