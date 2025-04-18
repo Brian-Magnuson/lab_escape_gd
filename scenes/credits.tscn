@@ -1,6 +1,6 @@
-[gd_scene load_steps=31 format=4 uid="uid://b0csauuthn14o"]
+[gd_scene load_steps=32 format=4 uid="uid://klc86qbi51vx"]
 
-[ext_resource type="Script" uid="uid://bpmup3tc5g3dm" path="res://scripts/title.gd" id="1_83ncp"]
+[ext_resource type="Script" uid="uid://tykh3qf7r3bj" path="res://scripts/credits.gd" id="1_ih6pn"]
 [ext_resource type="Texture2D" uid="uid://b01pi01f8b3ti" path="res://assets/backgrounds/Warehouse1.png" id="2_sxold"]
 [ext_resource type="Texture2D" uid="uid://knndlxqkwnnb" path="res://assets/backgrounds/Warehouse2.png" id="3_olp7g"]
 [ext_resource type="Texture2D" uid="uid://dh3nli5ll3qse" path="res://assets/environment/FogCloudSquare.png" id="4_agqj7"]
@@ -604,27 +604,17 @@ _data = {
 &"fade_out": SubResource("Animation_ypn4w")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_7lgdl"]
+[sub_resource type="LabelSettings" id="LabelSettings_ih6pn"]
 font = ExtResource("9_ih6pn")
 font_size = 20
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_ih6pn"]
-resource_name = "scroll"
-length = 30.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 30),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(280, 399), Vector2(280, -661)]
-}
+[sub_resource type="LabelSettings" id="LabelSettings_7lgdl"]
+font = ExtResource("9_ih6pn")
+font_size = 20
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_7lgdl"]
 length = 0.001
@@ -641,14 +631,31 @@ tracks/0/keys = {
 "values": [Vector2(228, 399)]
 }
 
+[sub_resource type="Animation" id="Animation_ih6pn"]
+resource_name = "scroll"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(280, 399), Vector2(280, -661)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6kru"]
 _data = {
 &"RESET": SubResource("Animation_7lgdl"),
 &"scroll": SubResource("Animation_ih6pn")
 }
 
-[node name="Title" type="Node"]
-script = ExtResource("1_83ncp")
+[node name="Credits" type="Node"]
+script = ExtResource("1_ih6pn")
 
 [node name="Background" type="Node2D" parent="."]
 z_index = -5
@@ -726,6 +733,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_lbrgs")
 }
 autoplay = "fade_in"
+
+[node name="Label" type="Label" parent="UserInterface"]
+self_modulate = Color(1, 1, 1, 0.588235)
+texture_filter = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Press E to return to title screen"
+label_settings = SubResource("LabelSettings_ih6pn")
 
 [node name="Credits" type="Label" parent="."]
 z_index = -4
