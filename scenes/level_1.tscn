@@ -25,7 +25,7 @@
 [ext_resource type="FontFile" uid="uid://ovusp05cp1yp" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="23_y0ove"]
 [ext_resource type="PackedScene" uid="uid://bvlhnwbgnewhs" path="res://scenes/box_cluster_b.tscn" id="24_s7g0b"]
 [ext_resource type="PackedScene" uid="uid://dfw8bn381rsyv" path="res://scenes/blue_potion.tscn" id="25_x2fux"]
-[ext_resource type="PackedScene" path="res://scenes/exit_door.tscn" id="26_mmfjm"]
+[ext_resource type="PackedScene" uid="uid://c0ibr3qq4r1wh" path="res://scenes/exit_door.tscn" id="26_mmfjm"]
 [ext_resource type="PackedScene" uid="uid://cm3xvouxmewkv" path="res://scenes/level_A.tscn" id="27_k8ld0"]
 
 [sub_resource type="Gradient" id="Gradient_44yx7"]
@@ -673,7 +673,7 @@ texture_filter = 1
 [node name="Parallax3" type="Parallax2D" parent="Background"]
 scroll_offset = Vector2(-3, 424)
 repeat_size = Vector2(800, 0)
-repeat_times = 3
+repeat_times = 10
 
 [node name="TextureRect" type="TextureRect" parent="Background/Parallax3"]
 offset_right = 800.0
@@ -684,7 +684,7 @@ texture = SubResource("GradientTexture2D_lbrgs")
 scroll_scale = Vector2(0.6, 1)
 scroll_offset = Vector2(-3, 424)
 repeat_size = Vector2(640, 0)
-repeat_times = 3
+repeat_times = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2"]
 scale = Vector2(2, 2)
@@ -695,6 +695,7 @@ centered = false
 scroll_scale = Vector2(0.8, 1)
 scroll_offset = Vector2(-3, 424)
 repeat_size = Vector2(640, 0)
+repeat_times = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Parallax1"]
 scale = Vector2(2, 2)

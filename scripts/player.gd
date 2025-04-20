@@ -39,7 +39,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() or get_meta("in_water", false) as bool:
 		# Keep holding jump to jump higher
 		if Input.is_action_pressed("jump"):
 			velocity += get_gravity() * delta
