@@ -671,6 +671,7 @@ z_index = -5
 texture_filter = 1
 
 [node name="Parallax3" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0, 1)
 scroll_offset = Vector2(-3, 424)
 repeat_size = Vector2(800, 0)
 repeat_times = 10
@@ -681,7 +682,7 @@ offset_bottom = 600.0
 texture = SubResource("GradientTexture2D_lbrgs")
 
 [node name="Parallax2" type="Parallax2D" parent="Background"]
-scroll_scale = Vector2(0.6, 1)
+scroll_scale = Vector2(0.1, 1)
 scroll_offset = Vector2(-3, 424)
 repeat_size = Vector2(640, 0)
 repeat_times = 10
@@ -692,7 +693,7 @@ texture = ExtResource("1_x2fux")
 centered = false
 
 [node name="Parallax1" type="Parallax2D" parent="Background"]
-scroll_scale = Vector2(0.8, 1)
+scroll_scale = Vector2(0.2, 1)
 scroll_offset = Vector2(-3, 424)
 repeat_size = Vector2(640, 0)
 repeat_times = 10
