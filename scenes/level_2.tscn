@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://042w7gtl4efq"]
+[gd_scene load_steps=53 format=4 uid="uid://042w7gtl4efq"]
 
 [ext_resource type="Texture2D" uid="uid://b01pi01f8b3ti" path="res://assets/backgrounds/Warehouse1.png" id="1_pc3at"]
 [ext_resource type="Texture2D" uid="uid://knndlxqkwnnb" path="res://assets/backgrounds/Warehouse2.png" id="2_bgibu"]
@@ -643,7 +643,7 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_pc3at"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 148, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 222, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 3
 
@@ -656,6 +656,12 @@ point_count = 3
 [sub_resource type="Curve2D" id="Curve2D_45kkt"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 202, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_7egwj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 325, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 3
 
@@ -718,11 +724,11 @@ tile_set = ExtResource("7_nquw4")
 
 [node name="ForegroundPlatforms" type="TileMapLayer" parent="."]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAlACcAAQAAAAAAAAAmACcAAQAAAAAAAAAPABsAAQAAAAAAAAAMABsAAQAAAAAAAAAMABcAAQAAAAAAAAAPABcAAQAAAAAAAAAcACMAAQAAAAAAAAAZACMAAQAAAAAAAAAZAB8AAQAAAAAAAAAcAB8AAQAAAAAAAAAxABYAAQAAAAAAAAAyABYAAQAAAAAAAAAxABsAAQAAAAAAAAAyABsAAQAAAAAAAAA1ABwAAQAAAAAAAAA2ABwAAQAAAAAAAAA3ABwAAQAAAAAAAAA4ABwAAQAAAAAAAAA5ABwAAQAAAAAAAAA6ABwAAQAAAAAAAAA7ABwAAQAAAAAAAAA8ABwAAQAAAAAAAAA9ABwAAQAAAAAAAAA+ABwAAQAAAAAAAAA/ABwAAQAAAAAAAABAABwAAQAAAAAAAAA1ABgAAQAAAAAAAAA2ABgAAQAAAAAAAAA3ABgAAQAAAAAAAAA4ABgAAQAAAAAAAAA5ABgAAQAAAAAAAAA6ABgAAQAAAAAAAAA7ABgAAQAAAAAAAAA8ABgAAQAAAAAAAAA9ABgAAQAAAAAAAAA+ABgAAQAAAAAAAAA/ABgAAQAAAAAAAABAABgAAQAAAAAAAABEABYAAQAAAAAAAABFABYAAQAAAAAAAABGABYAAQAAAAAAAABEAB0AAQAAAAAAAABFAB0AAQAAAAAAAABGAB0AAQAAAAAAAAAxABkAAQAAAAAAAAAyABkAAQAAAAAAAAAVABQAAQAAAAAAAAAYABQAAQAAAAAAAAAVAAsAAQAAAAAAAAAYAAsAAQAAAAAAAAAHABIAAQAAAAAAAAAIABIAAQAAAAAAAAAJABIAAQAAAAAAAAAKABIAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAlACcAAQAAAAAAAAAmACcAAQAAAAAAAAAPABsAAQAAAAAAAAAMABsAAQAAAAAAAAAMABcAAQAAAAAAAAAPABcAAQAAAAAAAAAcACMAAQAAAAAAAAAZACMAAQAAAAAAAAAZAB8AAQAAAAAAAAAcAB8AAQAAAAAAAAAxABYAAQAAAAAAAAAyABYAAQAAAAAAAAAxABsAAQAAAAAAAAAyABsAAQAAAAAAAAA1ABwAAQAAAAAAAAA2ABwAAQAAAAAAAAA3ABwAAQAAAAAAAAA4ABwAAQAAAAAAAAA5ABwAAQAAAAAAAAA6ABwAAQAAAAAAAAA7ABwAAQAAAAAAAAA8ABwAAQAAAAAAAAA9ABwAAQAAAAAAAAA+ABwAAQAAAAAAAAA/ABwAAQAAAAAAAABAABwAAQAAAAAAAAA1ABgAAQAAAAAAAAA2ABgAAQAAAAAAAAA3ABgAAQAAAAAAAAA4ABgAAQAAAAAAAAA5ABgAAQAAAAAAAAA6ABgAAQAAAAAAAAA7ABgAAQAAAAAAAAA8ABgAAQAAAAAAAAA9ABgAAQAAAAAAAAA+ABgAAQAAAAAAAAA/ABgAAQAAAAAAAABAABgAAQAAAAAAAABEABYAAQAAAAAAAABFABYAAQAAAAAAAABGABYAAQAAAAAAAABEAB0AAQAAAAAAAABFAB0AAQAAAAAAAABGAB0AAQAAAAAAAAAxABkAAQAAAAAAAAAyABkAAQAAAAAAAAAVABQAAQAAAAAAAAAYABQAAQAAAAAAAAAVAAsAAQAAAAAAAAAYAAsAAQAAAAAAAAAHABIAAQAAAAAAAAAIABIAAQAAAAAAAAAJABIAAQAAAAAAAAAKABIAAQAAAAAAAAAjAAkAAQAAAAAAAAAiAAkAAQAAAAAAAAAoAAkAAQAAAAAAAAApAAkAAQAAAAAAAAAoAAsAAQAAAAAAAAApAAsAAQAAAAAAAAAyAAoAAQAAAAAAAAAzAAoAAQAAAAAAAAA0AAoAAQAAAAAAAAA1AAoAAQAAAAAAAAA2AAoAAQAAAAAAAAA3AAoAAQAAAAAAAAA4AAoAAQAAAAAAAAA5AAoAAQAAAAAAAAA6AAoAAQAAAAAAAAA7AAoAAQAAAAAAAAA8AAoAAQAAAAAAAAA9AAoAAQAAAAAAAAA+AAoAAQAAAAAAAAA/AAoAAQAAAAAAAABAAAoAAQAAAAAAAABBAAoAAQAAAAAAAABCAAoAAQAAAAAAAABDAAoAAQAAAAAAAABEAAoAAQAAAAAAAABFAAoAAQAAAAAAAABGAAoAAQAAAAAAAABHAAoAAQAAAAAAAABIAAoAAQAAAAAAAABJAAoAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_hee1t")
 
 [node name="Player" parent="." instance=ExtResource("8_3buw8")]
-position = Vector2(2294, 1229)
+position = Vector2(1339, 1299)
 metadata/is_hidden = false
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -909,6 +915,33 @@ position = Vector2(-1111, -480)
 [node name="GreenGem" parent="." instance=ExtResource("17_bbkd8")]
 position = Vector2(993, 1302)
 
+[node name="GreenGem2" parent="." instance=ExtResource("17_bbkd8")]
+position = Vector2(251, 561)
+
+[node name="GreenGem3" parent="." instance=ExtResource("17_bbkd8")]
+position = Vector2(330, 561)
+
+[node name="GreenGem4" parent="." instance=ExtResource("17_bbkd8")]
+position = Vector2(1009, 611)
+
+[node name="GreenGem5" parent="." instance=ExtResource("17_bbkd8")]
+position = Vector2(1072, 457)
+
+[node name="GreenGem6" parent="." instance=ExtResource("17_bbkd8")]
+position = Vector2(1305, 685)
+
+[node name="GreenGem7" parent="." instance=ExtResource("17_bbkd8")]
+position = Vector2(1705, 359)
+
+[node name="GreenGem8" parent="." instance=ExtResource("17_bbkd8")]
+position = Vector2(1992, 361)
+
+[node name="GreenGem9" parent="." instance=ExtResource("17_bbkd8")]
+position = Vector2(2306, 359)
+
+[node name="GreenGem10" parent="." instance=ExtResource("17_bbkd8")]
+position = Vector2(2654, 389)
+
 [node name="Lift" parent="." instance=ExtResource("18_kqn1b")]
 position = Vector2(837, 1243)
 curve = SubResource("Curve2D_bgibu")
@@ -946,6 +979,10 @@ curve = SubResource("Curve2D_pc3at")
 position = Vector2(530, 723)
 curve = SubResource("Curve2D_pc3at")
 
+[node name="Researcher8" parent="." instance=ExtResource("19_y6uxt")]
+position = Vector2(1105, 275)
+curve = SubResource("Curve2D_pc3at")
+
 [node name="Guard" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_r72fi")]
 position = Vector2(1716, 883)
 curve = SubResource("Curve2D_73m23")
@@ -964,14 +1001,38 @@ curve = SubResource("Curve2D_45kkt")
 player = NodePath("../Player")
 bullet = ExtResource("21_00rct")
 
+[node name="Guard4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_r72fi")]
+position = Vector2(1624, 307)
+curve = SubResource("Curve2D_7egwj")
+player = NodePath("../Player")
+bullet = ExtResource("21_00rct")
+
+[node name="Guard5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_r72fi")]
+position = Vector2(2020.77, 307)
+curve = SubResource("Curve2D_7egwj")
+player = NodePath("../Player")
+bullet = ExtResource("21_00rct")
+
 [node name="HealthKit" parent="." instance=ExtResource("22_tv75f")]
-position = Vector2(-105, 634)
+position = Vector2(291, 555)
+
+[node name="HealthKit2" parent="." instance=ExtResource("22_tv75f")]
+position = Vector2(2470, 386)
 
 [node name="BoxCluster" parent="." instance=ExtResource("23_0qg6v")]
 position = Vector2(1896, 968)
 
+[node name="BoxCluster3" parent="." instance=ExtResource("23_0qg6v")]
+position = Vector2(1705, 392)
+
+[node name="BoxCluster4" parent="." instance=ExtResource("23_0qg6v")]
+position = Vector2(2306, 392)
+
 [node name="BluePotion" parent="." instance=ExtResource("25_ngxfi")]
-position = Vector2(-323, 696)
+position = Vector2(1272, 685)
+
+[node name="BluePotion2" parent="." instance=ExtResource("25_ngxfi")]
+position = Vector2(2348, 1231)
 
 [node name="ExitDoor" parent="." instance=ExtResource("26_kq2c3")]
 z_index = -2
@@ -980,6 +1041,12 @@ next_scene = ExtResource("27_v8uj3")
 
 [node name="BoxCluster2" parent="." instance=ExtResource("28_bgibu")]
 position = Vector2(1758, 744)
+
+[node name="BoxCluster5" parent="." instance=ExtResource("28_bgibu")]
+position = Vector2(1989, 392)
+
+[node name="BoxCluster6" parent="." instance=ExtResource("28_bgibu")]
+position = Vector2(2269, 1256)
 
 [connection signal="health_updated" from="Player" to="UserInterface" method="_on_player_health_updated"]
 [connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]
