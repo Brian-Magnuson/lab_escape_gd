@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://042w7gtl4efq"]
+[gd_scene load_steps=52 format=4 uid="uid://042w7gtl4efq"]
 
 [ext_resource type="Texture2D" uid="uid://b01pi01f8b3ti" path="res://assets/backgrounds/Warehouse1.png" id="1_pc3at"]
 [ext_resource type="Texture2D" uid="uid://knndlxqkwnnb" path="res://assets/backgrounds/Warehouse2.png" id="2_bgibu"]
@@ -635,9 +635,15 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="Curve2D" id="Curve2D_taw0e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 27, -7, 0, 0, 0, 0, 27, -379, 0, 0, 0, 0, 27, -7)
+}
+point_count = 3
+
 [sub_resource type="Curve2D" id="Curve2D_pc3at"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 155, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 148, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 3
 
@@ -712,7 +718,7 @@ tile_set = ExtResource("7_nquw4")
 
 [node name="ForegroundPlatforms" type="TileMapLayer" parent="."]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAlACcAAQAAAAAAAAAmACcAAQAAAAAAAAAPABsAAQAAAAAAAAAMABsAAQAAAAAAAAAMABcAAQAAAAAAAAAPABcAAQAAAAAAAAAcACMAAQAAAAAAAAAZACMAAQAAAAAAAAAZAB8AAQAAAAAAAAAcAB8AAQAAAAAAAAAxABYAAQAAAAAAAAAyABYAAQAAAAAAAAAxABsAAQAAAAAAAAAyABsAAQAAAAAAAAA1ABwAAQAAAAAAAAA2ABwAAQAAAAAAAAA3ABwAAQAAAAAAAAA4ABwAAQAAAAAAAAA5ABwAAQAAAAAAAAA6ABwAAQAAAAAAAAA7ABwAAQAAAAAAAAA8ABwAAQAAAAAAAAA9ABwAAQAAAAAAAAA+ABwAAQAAAAAAAAA/ABwAAQAAAAAAAABAABwAAQAAAAAAAAA1ABgAAQAAAAAAAAA2ABgAAQAAAAAAAAA3ABgAAQAAAAAAAAA4ABgAAQAAAAAAAAA5ABgAAQAAAAAAAAA6ABgAAQAAAAAAAAA7ABgAAQAAAAAAAAA8ABgAAQAAAAAAAAA9ABgAAQAAAAAAAAA+ABgAAQAAAAAAAAA/ABgAAQAAAAAAAABAABgAAQAAAAAAAABEABYAAQAAAAAAAABFABYAAQAAAAAAAABGABYAAQAAAAAAAABEAB0AAQAAAAAAAABFAB0AAQAAAAAAAABGAB0AAQAAAAAAAAAxABkAAQAAAAAAAAAyABkAAQAAAAAAAAAVABQAAQAAAAAAAAAYABQAAQAAAAAAAAAVAAsAAQAAAAAAAAAYAAsAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAlACcAAQAAAAAAAAAmACcAAQAAAAAAAAAPABsAAQAAAAAAAAAMABsAAQAAAAAAAAAMABcAAQAAAAAAAAAPABcAAQAAAAAAAAAcACMAAQAAAAAAAAAZACMAAQAAAAAAAAAZAB8AAQAAAAAAAAAcAB8AAQAAAAAAAAAxABYAAQAAAAAAAAAyABYAAQAAAAAAAAAxABsAAQAAAAAAAAAyABsAAQAAAAAAAAA1ABwAAQAAAAAAAAA2ABwAAQAAAAAAAAA3ABwAAQAAAAAAAAA4ABwAAQAAAAAAAAA5ABwAAQAAAAAAAAA6ABwAAQAAAAAAAAA7ABwAAQAAAAAAAAA8ABwAAQAAAAAAAAA9ABwAAQAAAAAAAAA+ABwAAQAAAAAAAAA/ABwAAQAAAAAAAABAABwAAQAAAAAAAAA1ABgAAQAAAAAAAAA2ABgAAQAAAAAAAAA3ABgAAQAAAAAAAAA4ABgAAQAAAAAAAAA5ABgAAQAAAAAAAAA6ABgAAQAAAAAAAAA7ABgAAQAAAAAAAAA8ABgAAQAAAAAAAAA9ABgAAQAAAAAAAAA+ABgAAQAAAAAAAAA/ABgAAQAAAAAAAABAABgAAQAAAAAAAABEABYAAQAAAAAAAABFABYAAQAAAAAAAABGABYAAQAAAAAAAABEAB0AAQAAAAAAAABFAB0AAQAAAAAAAABGAB0AAQAAAAAAAAAxABkAAQAAAAAAAAAyABkAAQAAAAAAAAAVABQAAQAAAAAAAAAYABQAAQAAAAAAAAAVAAsAAQAAAAAAAAAYAAsAAQAAAAAAAAAHABIAAQAAAAAAAAAIABIAAQAAAAAAAAAJABIAAQAAAAAAAAAKABIAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_hee1t")
 
 [node name="Player" parent="." instance=ExtResource("8_3buw8")]
@@ -881,6 +887,19 @@ dialogue_id = "L1HowToSlap"
 [node name="Jelly" parent="." instance=ExtResource("15_xc1pa")]
 position = Vector2(1271, 1299)
 
+[node name="Jelly2" parent="." instance=ExtResource("15_xc1pa")]
+position = Vector2(1338, 723)
+
+[node name="Jelly3" parent="." instance=ExtResource("15_xc1pa")]
+position = Vector2(1374, 723)
+
+[node name="Jelly4" parent="." instance=ExtResource("15_xc1pa")]
+position = Vector2(855, 339)
+scale = Vector2(-1, 1)
+
+[node name="Jelly5" parent="." instance=ExtResource("15_xc1pa")]
+position = Vector2(620, 339)
+
 [node name="TeleporterPair" parent="." instance=ExtResource("16_j2jmx")]
 position = Vector2(2156, 1258)
 
@@ -894,6 +913,14 @@ position = Vector2(993, 1302)
 position = Vector2(837, 1243)
 curve = SubResource("Curve2D_bgibu")
 
+[node name="Lift2" parent="." instance=ExtResource("18_kqn1b")]
+position = Vector2(421, 988)
+curve = SubResource("Curve2D_bgibu")
+
+[node name="Lift3" parent="." instance=ExtResource("18_kqn1b")]
+position = Vector2(709, 734)
+curve = SubResource("Curve2D_taw0e")
+
 [node name="Researcher" parent="." instance=ExtResource("19_y6uxt")]
 position = Vector2(1385, 1299)
 
@@ -905,6 +932,18 @@ position = Vector2(1730, 979)
 
 [node name="Researcher2" parent="." instance=ExtResource("19_y6uxt")]
 position = Vector2(1076, 1235)
+curve = SubResource("Curve2D_pc3at")
+
+[node name="Researcher5" parent="." instance=ExtResource("19_y6uxt")]
+position = Vector2(518, 979)
+curve = SubResource("Curve2D_pc3at")
+
+[node name="Researcher6" parent="." instance=ExtResource("19_y6uxt")]
+position = Vector2(1129, 979)
+curve = SubResource("Curve2D_pc3at")
+
+[node name="Researcher7" parent="." instance=ExtResource("19_y6uxt")]
+position = Vector2(530, 723)
 curve = SubResource("Curve2D_pc3at")
 
 [node name="Guard" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_r72fi")]
