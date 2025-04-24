@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://042w7gtl4efq"]
+[gd_scene load_steps=53 format=4 uid="uid://c3j1kafjuo3vx"]
 
 [ext_resource type="Texture2D" uid="uid://b01pi01f8b3ti" path="res://assets/backgrounds/Warehouse1.png" id="1_pc3at"]
 [ext_resource type="Texture2D" uid="uid://knndlxqkwnnb" path="res://assets/backgrounds/Warehouse2.png" id="2_bgibu"]
@@ -887,8 +887,32 @@ position = Vector2(2485, 1117)
 scale = Vector2(9.48, 18.2)
 
 [node name="Sign" parent="." instance=ExtResource("14_qku3a")]
-position = Vector2(-224, 896)
-dialogue_id = "L1HowToSlap"
+position = Vector2(723, 968)
+dialogue_id = "L2ToWaterLabs"
+
+[node name="Sign3" parent="." instance=ExtResource("14_qku3a")]
+position = Vector2(308, 714)
+dialogue_id = "L2FloatingWater"
+
+[node name="Sign4" parent="." instance=ExtResource("14_qku3a")]
+position = Vector2(317, 341)
+dialogue_id = "L2NoSwimming"
+
+[node name="Sign5" parent="." instance=ExtResource("14_qku3a")]
+position = Vector2(905, 333)
+dialogue_id = "L2JumpHigher"
+
+[node name="Sign6" parent="." instance=ExtResource("14_qku3a")]
+position = Vector2(2197, 1257)
+dialogue_id = "L2AShortcut"
+
+[node name="Sign7" parent="." instance=ExtResource("14_qku3a")]
+position = Vector2(2711, 390)
+dialogue_id = "L2Number8"
+
+[node name="Sign2" parent="." instance=ExtResource("14_qku3a")]
+position = Vector2(1010, 968)
+dialogue_id = "L2ToWarehouse"
 
 [node name="Jelly" parent="." instance=ExtResource("15_xc1pa")]
 position = Vector2(1271, 1299)
@@ -1036,7 +1060,7 @@ position = Vector2(2348, 1231)
 
 [node name="ExitDoor" parent="." instance=ExtResource("26_kq2c3")]
 z_index = -2
-position = Vector2(-271, 598)
+position = Vector2(2793, 398)
 next_scene = ExtResource("27_v8uj3")
 
 [node name="BoxCluster2" parent="." instance=ExtResource("28_bgibu")]
@@ -1053,5 +1077,17 @@ position = Vector2(2269, 1256)
 [connection signal="score_updated" from="Player" to="UserInterface" method="_on_player_score_updated"]
 [connection signal="sign_read" from="Sign" to="UserInterface" method="_on_sign_sign_read"]
 [connection signal="sign_stop_read" from="Sign" to="UserInterface" method="_on_sign_sign_stop_read"]
+[connection signal="sign_read" from="Sign3" to="UserInterface" method="_on_sign_sign_read"]
+[connection signal="sign_stop_read" from="Sign3" to="UserInterface" method="_on_sign_sign_stop_read"]
+[connection signal="sign_read" from="Sign4" to="UserInterface" method="_on_sign_sign_read"]
+[connection signal="sign_stop_read" from="Sign4" to="UserInterface" method="_on_sign_sign_stop_read"]
+[connection signal="sign_read" from="Sign5" to="UserInterface" method="_on_sign_sign_read"]
+[connection signal="sign_stop_read" from="Sign5" to="UserInterface" method="_on_sign_sign_stop_read"]
+[connection signal="sign_read" from="Sign6" to="UserInterface" method="_on_sign_sign_read"]
+[connection signal="sign_stop_read" from="Sign6" to="UserInterface" method="_on_sign_sign_stop_read"]
+[connection signal="sign_read" from="Sign7" to="UserInterface" method="_on_sign_sign_read"]
+[connection signal="sign_stop_read" from="Sign7" to="UserInterface" method="_on_sign_sign_stop_read"]
+[connection signal="sign_read" from="Sign2" to="UserInterface" method="_on_sign_sign_read"]
+[connection signal="sign_stop_read" from="Sign2" to="UserInterface" method="_on_sign_sign_stop_read"]
 
 [editable path="TeleporterPair"]
