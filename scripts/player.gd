@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Check if the player is in the water
 	if get_meta("in_water", false) as bool:
-		resistance = 0.1
+		resistance = 0.2
 	else:
 		resistance = 0.0
 	
