@@ -776,15 +776,15 @@ tile_map_data = PackedByteArray("AAAeADwAAQAAAAAAAAAfADwAAQAAAAAAAAAgADwAAQAAAAA
 tile_set = SubResource("TileSet_hee1t")
 
 [node name="Player" parent="." instance=ExtResource("8_os8re")]
-position = Vector2(834, 909)
+position = Vector2(486, 2195)
 metadata/is_hidden = false
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2.145, 2.145)
 limit_left = 50
 limit_top = 50
-limit_right = 2920
-limit_bottom = 1350
+limit_right = 2250
+limit_bottom = 2250
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource("9_ciptj")

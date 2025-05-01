@@ -10,7 +10,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		player_in_range = true
+		player_in_range = false
 
 func _input(event: InputEvent) -> void:
 	if player_in_range and event.is_action_pressed("interact"):

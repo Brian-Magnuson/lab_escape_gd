@@ -120,6 +120,7 @@ func death() -> void:
 	can_jump = false
 	can_attack = false
 	can_animate = false
+	velocity = Vector2.ZERO
 	player_died.emit()
 	await get_tree().create_timer(4.0).timeout
 	get_tree().reload_current_scene()
