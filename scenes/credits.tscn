@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://klc86qbi51vx"]
+[gd_scene load_steps=33 format=4 uid="uid://klc86qbi51vx"]
 
 [ext_resource type="Script" uid="uid://tykh3qf7r3bj" path="res://scripts/credits.gd" id="1_ih6pn"]
 [ext_resource type="Texture2D" uid="uid://b01pi01f8b3ti" path="res://assets/backgrounds/Warehouse1.png" id="2_sxold"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://biqr3vu0dcgxc" path="res://assets/environment/SemisolidPlatform.png" id="6_e4uir"]
 [ext_resource type="Texture2D" uid="uid://dghxv6wir8pe7" path="res://assets/tiles/LabTilesetDarker.png" id="7_g801i"]
 [ext_resource type="TileSet" uid="uid://cjj3lgustq04" path="res://assets/tiles/tiles.tres" id="8_4t8yx"]
+[ext_resource type="AudioStream" uid="uid://dci83oaluh64j" path="res://assets/music/Sanctuary.wav" id="9_7lgdl"]
 [ext_resource type="FontFile" uid="uid://ovusp05cp1yp" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="9_ih6pn"]
 
 [sub_resource type="Gradient" id="Gradient_44yx7"]
@@ -716,6 +717,10 @@ tile_set = SubResource("TileSet_hee1t")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(434, 241)
 zoom = Vector2(2, 2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D"]
+stream = ExtResource("9_7lgdl")
+autoplay = true
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 

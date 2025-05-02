@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://c3j1kafjuo3vx"]
+[gd_scene load_steps=55 format=4 uid="uid://c3j1kafjuo3vx"]
 
 [ext_resource type="Texture2D" uid="uid://b01pi01f8b3ti" path="res://assets/backgrounds/Warehouse1.png" id="1_pc3at"]
 [ext_resource type="Texture2D" uid="uid://knndlxqkwnnb" path="res://assets/backgrounds/Warehouse2.png" id="2_bgibu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dghxv6wir8pe7" path="res://assets/tiles/LabTilesetDarker.png" id="6_7egwj"]
 [ext_resource type="TileSet" uid="uid://cjj3lgustq04" path="res://assets/tiles/tiles.tres" id="7_nquw4"]
 [ext_resource type="PackedScene" uid="uid://bw1sjx2gp5mpl" path="res://scenes/player.tscn" id="8_3buw8"]
+[ext_resource type="AudioStream" uid="uid://dn4w7q3u7v26g" path="res://assets/music/Box Jump.wav" id="9_73m23"]
 [ext_resource type="PackedScene" uid="uid://d4aamild7ii45" path="res://scenes/force_field.tscn" id="9_pc3at"]
 [ext_resource type="Script" uid="uid://cnyd6dw7arlgs" path="res://scripts/user_interface.gd" id="9_vwjju"]
 [ext_resource type="Texture2D" uid="uid://w4yl13wfmkrv" path="res://assets/ui/HealthBarFrame.png" id="10_rur20"]
@@ -743,6 +744,10 @@ limit_left = 50
 limit_top = 50
 limit_right = 2920
 limit_bottom = 1350
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player/Camera2D"]
+stream = ExtResource("9_73m23")
+autoplay = true
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource("9_vwjju")
