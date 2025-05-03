@@ -93,10 +93,13 @@ func _physics_process(delta: float) -> void:
 	if can_animate:
 		if Input.is_action_pressed("attack"):
 			$AnimatedSprite2D.play("attack")
+			attack_sound()
 		elif Input.is_action_just_pressed("jump") and is_on_floor():
 			$AnimatedSprite2D.play("jump")
+			$JumpSfx.play()
 		elif is_on_floor() and abs(direction) > 0:
 			$AnimatedSprite2D.play("walk")
+			step_sound()
 		else:
 			$AnimatedSprite2D.play("idle")
 
@@ -112,6 +115,16 @@ func hit(amount: float) -> void:
 	else:
 		$IFrameTimer.start()
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
+
+func step_sound() -> void:
+	if $StepDelayTimer.is_stopped():
+		$WalkSfx.play()
+		$StepDelayTimer.start()
+
+func attack_sound() -> void:
+	if $AttackDelayTimer.is_stopped():
+		$AttackSfx.play()
+		$AttackDelayTimer.start()
 
 ## Called when the player dies.
 func death() -> void:
