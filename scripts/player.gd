@@ -146,17 +146,20 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("item_score"):
 		area.queue_free()
 		score_updated.emit(100)
+		$ItemSfx.play()
 	# If the player collides with a health item, heal the player.
 	elif area.is_in_group("item_heal"):
 		area.queue_free()
 		health = clamp(health + 50, 0, max_health)
 		health_updated.emit(health, max_health)
+		$PowerupSfx.play()
 	# If the player collides with an upgrade item, increase the player's health.
 	elif area.is_in_group("item_upgrade"):
 		area.queue_free()
 		max_health += 20;
 		health += 20;
 		health_updated.emit(health, max_health)
+		$PowerupSfx.play()
 
 func _on_i_frame_timer_timeout() -> void:
 	# Give the player invincibility frames, then re-enable the hurtbox.
