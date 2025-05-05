@@ -714,7 +714,7 @@ _data = {
 }
 point_count = 3
 
-[node name="Level2" type="Node"]
+[node name="Level3" type="Node"]
 
 [node name="Background" type="Node2D" parent="."]
 z_index = -5
@@ -786,10 +786,6 @@ limit_left = 50
 limit_top = 50
 limit_right = 2250
 limit_bottom = 2250
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player/Camera2D"]
-stream = ExtResource("9_1rxxv")
-autoplay = true
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource("9_ciptj")
@@ -1229,6 +1225,11 @@ position = Vector2(1605, 689)
 z_index = -2
 position = Vector2(1599, 238)
 next_scene = ExtResource("27_04pdi")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_1rxxv")
+volume_db = -6.0
+autoplay = true
 
 [connection signal="health_updated" from="Player" to="UserInterface" method="_on_player_health_updated"]
 [connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]

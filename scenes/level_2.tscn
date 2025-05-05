@@ -745,10 +745,6 @@ limit_top = 50
 limit_right = 2920
 limit_bottom = 1350
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player/Camera2D"]
-stream = ExtResource("9_73m23")
-autoplay = true
-
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource("9_vwjju")
 
@@ -1082,6 +1078,11 @@ position = Vector2(1989, 392)
 
 [node name="BoxCluster6" parent="." instance=ExtResource("28_bgibu")]
 position = Vector2(2269, 1256)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_73m23")
+volume_db = -6.0
+autoplay = true
 
 [connection signal="health_updated" from="Player" to="UserInterface" method="_on_player_health_updated"]
 [connection signal="player_died" from="Player" to="UserInterface" method="_on_player_player_died"]
