@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var score = 0.0
+#var score = 0.0
 
 var dialogue_data: Dictionary
 var current_dialogue: Dictionary
@@ -9,6 +9,7 @@ var current_dialogue_index = -1
 var is_scrolling_text = false
 
 func _ready() -> void:
+	$ScoreLabel.text = "%0.0f" % $"/root/GameMandager".score
 	$BlackScreen/AnimationPlayer.play("fade_in")
 	var dialogue_json_text = FileAccess.get_file_as_string("res://data/dialogue.json")
 	dialogue_data = JSON.parse_string(dialogue_json_text)
@@ -18,8 +19,8 @@ func _on_player_health_updated(health: float, max_health: float) -> void:
 	$HealthBar/Label.text = "%0.0f / %0.0f" % [health, max_health]
 
 func _on_player_score_updated(amount: float) -> void:
-	score += amount
-	$ScoreLabel.text = "%0.0f" % score
+	$"/root/GameManager".score += amount
+	$ScoreLabel.text = "%0.0f" % $"/root/GameMandager".score
 
 func _on_player_player_died() -> void:
 	await get_tree().create_timer(2.0).timeout
