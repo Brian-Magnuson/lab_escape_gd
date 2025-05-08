@@ -32,9 +32,10 @@ var resistance = 0.0
 
 func _ready() -> void:
 	# Set the hitbox's damage value and start the idle animation.
+	health = $"/root/GameManager".health
+	max_health = $"/root/GameManager".max_health
 	$Hitbox.set_meta("hit_damage", damage)
 	$AnimatedSprite2D.play("idle")
-	health = max_health
 	health_updated.emit(health, max_health)
 
 func _physics_process(delta: float) -> void:
@@ -136,6 +137,7 @@ func death() -> void:
 	velocity = Vector2.ZERO
 	player_died.emit()
 	await get_tree().create_timer(4.0).timeout
+	$"/root/GameManager".health = $"/root/GameManager".max_health
 	get_tree().reload_current_scene()
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:

@@ -9,7 +9,7 @@ var current_dialogue_index = -1
 var is_scrolling_text = false
 
 func _ready() -> void:
-	$ScoreLabel.text = "%0.0f" % $"/root/GameMandager".score
+	$ScoreLabel.text = "%0.0f" % $"/root/GameManager".score
 	$BlackScreen/AnimationPlayer.play("fade_in")
 	var dialogue_json_text = FileAccess.get_file_as_string("res://data/dialogue.json")
 	dialogue_data = JSON.parse_string(dialogue_json_text)
@@ -17,10 +17,12 @@ func _ready() -> void:
 func _on_player_health_updated(health: float, max_health: float) -> void:
 	$HealthBar.value = health / max_health
 	$HealthBar/Label.text = "%0.0f / %0.0f" % [health, max_health]
+	$"/root/GameManager".health = health
+	$"/root/GameManager".max_health = max_health
 
 func _on_player_score_updated(amount: float) -> void:
 	$"/root/GameManager".score += amount
-	$ScoreLabel.text = "%0.0f" % $"/root/GameMandager".score
+	$ScoreLabel.text = "%0.0f" % $"/root/GameManager".score
 
 func _on_player_player_died() -> void:
 	await get_tree().create_timer(2.0).timeout
